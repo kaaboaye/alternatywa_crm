@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  giving_member_id: 
+  taking_member_id: 
+  subject_id: 
+  time: 
+  date_time: 
+
+two:
+  giving_member_id: 
+  taking_member_id: 
+  subject_id: 
+  time: 
+  date_time: 
