@@ -1,3 +1,37 @@
 pl:
-    hello: "Siema"
-    main_page: "Strona główna"
+  activerecord:
+    errors:
+      models:
+        school:
+          attributes:
+            name:
+              blank: szkoły jest wymagana
+              too_short: szkoły jest za krótka
+    models:
+      school: Szkoła
+    attributes:
+      school:
+        name: Nazwa
+
+
+  helpers:
+    submit:
+      school:
+        create: Dodaj szkołę
+
+  main_page: Strona główna
+  name: Nazwa
+  show: Pokaż
+  error:
+    one: 1 błąd
+    other: "%{count} błędy"
+  back: Powrót
+  edit: Edytuj
+  restore: Przywróć
+  destroy: Usuń
+  are_you_sure: Czy na pewno?
+
+  school: Szkoła
+  adding_school: Dodawanie szkoły
+  school_list: Lista szkół
+  disabled_schools: Ukryte szkoły

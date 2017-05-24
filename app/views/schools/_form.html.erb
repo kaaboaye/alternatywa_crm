@@ -1,0 +1,22 @@
+<%= form_for @school do |f| %>
+  <% if @school.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= t :error, count: @school.errors.count %>
+      </h2>
+      <ul>
+        <% @school.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

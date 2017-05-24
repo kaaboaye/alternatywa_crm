@@ -13,12 +13,14 @@
 ActiveRecord::Schema.define(version: 20170522151713) do
 
   create_table "event_categories", force: :cascade do |t|
+    t.boolean "active", default: true
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "event_presences", force: :cascade do |t|
+    t.boolean "active", default: true
     t.integer "event_id"
     t.integer "member_id"
     t.time "time"
@@ -27,6 +29,7 @@ ActiveRecord::Schema.define(version: 20170522151713) do
   end
 
   create_table "events", force: :cascade do |t|
+    t.boolean "active", default: true
     t.string "name"
     t.text "description"
     t.integer "event_category_id"
@@ -35,6 +38,7 @@ ActiveRecord::Schema.define(version: 20170522151713) do
   end
 
   create_table "group_presences", force: :cascade do |t|
+    t.boolean "active", default: true
     t.integer "member_id"
     t.integer "group_id"
     t.time "time"
@@ -43,6 +47,7 @@ ActiveRecord::Schema.define(version: 20170522151713) do
   end
 
   create_table "groups", force: :cascade do |t|
+    t.boolean "active", default: true
     t.string "name"
     t.text "description"
     t.datetime "created_at", null: false
@@ -50,12 +55,14 @@ ActiveRecord::Schema.define(version: 20170522151713) do
   end
 
   create_table "lesson_subjects", force: :cascade do |t|
+    t.boolean "active", default: true
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "lessons", force: :cascade do |t|
+    t.boolean "active", default: true
     t.integer "giving_member_id"
     t.integer "taking_member_id"
     t.integer "lesson_subject_id"
@@ -66,11 +73,13 @@ ActiveRecord::Schema.define(version: 20170522151713) do
   end
 
   create_table "members", force: :cascade do |t|
+    t.boolean "active", default: true
     t.string "first_name"
     t.string "last_name"
     t.integer "pesel"
     t.string "street"
     t.string "house_number"
+    t.string "city"
     t.integer "school_id"
     t.string "work"
     t.integer "phone"
@@ -81,6 +90,7 @@ ActiveRecord::Schema.define(version: 20170522151713) do
   end
 
   create_table "schools", force: :cascade do |t|
+    t.boolean "active", default: true
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

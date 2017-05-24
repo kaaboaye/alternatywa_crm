@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
-    root to: 'home#index'
+  get 'members/disabled'
+  get 'members/restore'
 
-    #resources :home
-    resources :member
-    resources :school
-    resources :group
-    resources :event
-    resources :lesson
-    resources :lesson_subject
+
+  get 'schools/disabled'
+  get 'schools/:id/restore', to: 'schools#restore'
+  #resources :home
+  resources :members
+  resources :schools
+  resources :group
+  resources :event
+  resources :lesson
+  resources :lesson_subject
+
+  root to: 'home#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

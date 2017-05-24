@@ -1,0 +1,18 @@
+
+<h1><%= t :disabled_schools %></h1>
+
+<%= link_to t(:school_list), schools_path %>
+<table>
+  <tr>
+    <th><%= t :name %></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @schools.each do |school| %>
+    <tr>
+      <td><%= school.name %></td>
+      <td><%= link_to t(:restore), controller: "schools", action: "restore", id: school %></td>
+    </tr>
+  <% end %>
+</table>

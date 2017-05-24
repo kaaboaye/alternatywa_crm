@@ -1,6 +1,7 @@
 class CreateEventPresences < ActiveRecord::Migration[5.1]
   def change
     create_table :event_presences do |t|
+      t.boolean :active, :default => true
       t.integer :event_id
       t.integer :member_id
       t.time :time

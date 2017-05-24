@@ -1,0 +1,23 @@
+
+<h1><%= t :school_list %></h1>
+
+<%= link_to t(:adding_school), new_school_path %>
+<%= link_to t(:disabled_schools), controller: "schools", action: "disabled" %>
+<table>
+  <tr>
+    <th><%= t :name %></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @schools.each do |school| %>
+    <tr>
+      <td><%= school.name %></td>
+      <td><%= link_to t(:show), school_path(school) %></td>
+      <td><%= link_to t(:edit), edit_school_path(school) %></td>
+      <td><%= link_to t(:destroy), school_path(school),
+              method: :delete,
+              data: { confirm: t(:are_you_sure) } %></td>
+    </tr>
+  <% end %>
+</table>

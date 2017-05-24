@@ -82,6 +82,7 @@ GEM
     minitest (5.10.2)
     multi_json (1.12.1)
     nio4r (2.0.0)
+    nip_pesel_regon (1.0.0.rc2)
     nokogiri (1.7.2-x64-mingw32)
       mini_portile2 (~> 2.1.0)
     public_suffix (2.0.5)
@@ -165,6 +166,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
+  nip_pesel_regon
   puma (~> 3.7)
   rails (~> 5.1.1)
   sass-rails (~> 5.0)

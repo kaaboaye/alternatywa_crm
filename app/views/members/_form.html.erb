@@ -1,0 +1,62 @@
+<%= form_for @member do |f| %>
+  <% if @member.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= t :error, count: @school.errors.count %>
+      </h2>
+      <ul>
+        <% @school.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </p>
+  <p>
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </p>
+  <p>
+    <%= f.label :pesel %><br>
+    <%= f.text_field :pesel %>
+  </p>
+  <p>
+    <%= f.label :street %><br>
+    <%= f.text_field :street %>
+  </p>
+  <p>
+    <%= f.label :house_number %><br>
+    <%= f.text_field :house_number %>
+  </p>
+  <p>
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.label :school_id %><br>
+    <%= f.text_field :school_id %>
+  </p>
+  <p>
+    <%= f.label :work %><br>
+    <%= f.text_field :work %>
+  </p>
+  <p>
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </p>
+  <p>
+    <%= f.label :fathers_phone %><br>
+    <%= f.text_field :fathers_phone %>
+  </p>
+  <p>
+    <%= f.label :mothers_phone %><br>
+    <%= f.text_field :mothers_phone %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
