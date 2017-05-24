@@ -1,37 +1,67 @@
 pl:
   activerecord:
-    errors:
-      models:
-        school:
-          attributes:
-            name:
-              blank: szkoły jest wymagana
-              too_short: szkoły jest za krótka
     models:
       school: Szkoła
+      member: Osoba
+      group: Grupa
     attributes:
       school:
         name: Nazwa
-
+      member:
+        first_name: Imię
+        last_name: Nazwisko
+        pesel: PESEL
+        street: Ulica
+        house_number: Numer domu
+        city: Miasto
+        school: Szkoła
+        work: Praca
+        phone: Numer telefonu
+        fathers_phone: Numer telefonu ojca
+        mothers_phone: Numer telefonu matki
+      group:
+        name: Nazwa
 
   helpers:
     submit:
       school:
         create: Dodaj szkołę
+      member:
+        create: Dodaj osobę
+
+  errors:
+    messages:
+      blank: nie zostało podane
+      too_short: jest za krótkie
+      not_a_number: jest nie poprawny
+      required: jest wymagana
+      invalid_pesel: jest niepoprawny
 
   main_page: Strona główna
   name: Nazwa
   show: Pokaż
   error:
     one: 1 błąd
-    other: "%{count} błędy"
+    other: "Wystąpiły %{count} błędy"
   back: Powrót
   edit: Edytuj
   restore: Przywróć
   destroy: Usuń
   are_you_sure: Czy na pewno?
 
-  school: Szkoła
+  schools: Szkoły
   adding_school: Dodawanie szkoły
-  school_list: Lista szkół
+  schools_list: Lista szkół
   disabled_schools: Ukryte szkoły
+  edit_school: Edycja szkoły
+
+  members: Osoby
+  members_list: Lista osób
+  adding_member: Dodawanie osoby
+  edit_member: Edycja osoby
+  disabled_members: Ukryte osoby
+
+  groups: Grupy
+  groups_list: Lista grup
+  adding_group: Dodawanie grupy
+  disabled_groups: Ukryte grupy

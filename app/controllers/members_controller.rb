@@ -8,7 +8,7 @@ class MembersController < ApplicationController
   end
 
   def create
-    @member = Member.new school_params
+    @member = Member.new member_params
 
     if @member.save
       redirect_to @member
@@ -19,6 +19,7 @@ class MembersController < ApplicationController
 
   def show
     @member = Member.find_by_id params[:id]
+
     if @member.nil?
       render 'index'
     end
@@ -31,7 +32,7 @@ class MembersController < ApplicationController
   def update
     @member = Member.find params[:id]
 
-    if @member.update school_params
+    if @member.update member_params
       redirect_to @member
     else
       render 'edit'
@@ -43,11 +44,11 @@ class MembersController < ApplicationController
     @member.active = false
     @member.save
 
-    redirect_to schools_path
+    redirect_to members_path
   end
 
   def disabled
-    @member = Member.disabled
+    @members = Member.disabled
   end
 
   def restore
@@ -60,8 +61,8 @@ class MembersController < ApplicationController
 
 private
   def member_params
-    params.require(:member).permit :first_name,
-      :last_name, :pesel, :street, :house_number, :city, :school_id, :work,
-      :phone, :fathers_phone, :mothers_phone
+    params.require(:member).permit :first_name, :last_name, :pesel, :street,
+      :house_number, :city, :school_id, :work, :phone, :fathers_phone,
+      :mothers_phone
   end
 end

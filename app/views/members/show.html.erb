@@ -1,2 +1,47 @@
-<h1>Members#show</h1>
-<p>Find me in app/views/members/show.html.erb</p>
+<h2><%= t "activerecord.models.member" %></h2>
+<p>
+    <%= t "activerecord.attributes.member.first_name" %>:
+    <%= @member.first_name %>
+</p>
+<p>
+    <%= t "activerecord.attributes.member.last_name" %>:
+    <%= @member.last_name %>
+</p>
+<p>
+    <%= t "activerecord.attributes.member.pesel" %>:
+    <%= @member.pesel %>
+</p>
+<p>
+    <%= t "activerecord.attributes.member.street" %>:
+    <%= @member.street %>
+</p>
+<p>
+    <%= t "activerecord.attributes.member.house_number" %>:
+    <%= @member.house_number %>
+</p>
+<p>
+    <%= t "activerecord.attributes.member.city" %>:
+    <%= @member.city %>
+</p>
+<p>
+    <%= t "activerecord.attributes.member.school" %>:
+    <%= @member.school.name %>
+</p>
+<p>
+    <%= t "activerecord.attributes.member.work" %>:
+    <%= @member.work %>
+</p>
+<p>
+    <%= t "activerecord.attributes.member.phone" %>:
+    <%= @member.phone %>
+</p>
+<p>
+    <%= t "activerecord.attributes.member.fathers_phone" %>:
+    <%= @member.fathers_phone %>
+</p>
+<p>
+    <%= t "activerecord.attributes.member.mothers_phone" %>:
+    <%= @member.mothers_phone %>
+</p>
+
+<%= link_to t(:back), schools_path %>

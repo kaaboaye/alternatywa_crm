@@ -2,10 +2,10 @@
   <% if @member.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= t :error, count: @school.errors.count %>
+        <%= t :error, count: @member.errors.count %>
       </h2>
       <ul>
-        <% @school.errors.full_messages.each do |msg| %>
+        <% @member.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
@@ -38,7 +38,7 @@
   </p>
   <p>
     <%= f.label :school_id %><br>
-    <%= f.text_field :school_id %>
+    <%= f.collection_select :school_id, School.active, :id, :name %>
   </p>
   <p>
     <%= f.label :work %><br>

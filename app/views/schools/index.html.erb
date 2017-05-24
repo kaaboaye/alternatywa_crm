@@ -1,11 +1,10 @@
-
-<h1><%= t :school_list %></h1>
+<h1><%= t :schools_list %></h1>
 
 <%= link_to t(:adding_school), new_school_path %>
 <%= link_to t(:disabled_schools), controller: "schools", action: "disabled" %>
 <table>
   <tr>
-    <th><%= t :name %></th>
+    <th><%= t "activerecord.attributes.school.name" %></th>
     <th></th>
     <th></th>
   </tr>

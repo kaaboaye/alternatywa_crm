@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
+
+  get 'groups/disabled'
+  get 'groups/restore'
+  
   get 'members/disabled'
   get 'members/restore'
-
 
   get 'schools/disabled'
   get 'schools/:id/restore', to: 'schools#restore'
   #resources :home
   resources :members
   resources :schools
-  resources :group
+  resources :groups
   resources :event
   resources :lesson
   resources :lesson_subject
