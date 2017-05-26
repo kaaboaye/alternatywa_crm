@@ -1,3 +1,5 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+angular.module("app", []).controller "SchoolsCtrl", ($scope, $http) ->
+  $scope.$watch "search_name", ()->
+    $http.get "/schools/search.json?name=" + $scope.search_name
+    .then (response) ->
+      $scope.schools = response.data

@@ -48,7 +48,7 @@ class GroupsController < ApplicationController
   end
 
   def disabled
-    @members = Member.disabled
+    @groups = Group.disabled
   end
 
   def restore

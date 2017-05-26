@@ -1,0 +1,20 @@
+<h1><%= t :events_list %></h1>
+
+<%= link_to t(:adding_event), new_event_path %>
+<%= link_to t(:disabled_events), controller: "events", action: "disabled" %>
+<table>
+  <tr>
+    <th><%= t "activerecord.attributes.event.name" %></th>
+  </tr>
+
+  <% @events.each do |event| %>
+    <tr>
+      <td><%= event.name %></td>
+      <td><%= link_to t(:show), event_path(event) %></td>
+      <td><%= link_to t(:edit), edit_event_path(event) %></td>
+      <td><%= link_to t(:destroy), event_path(event),
+              method: :delete,
+              data: { confirm: t(:are_you_sure) } %></td>
+    </tr>
+  <% end %>
+</table>

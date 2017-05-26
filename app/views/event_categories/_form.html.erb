@@ -1,0 +1,22 @@
+<%= form_for @event_category do |f| %>
+  <% if @event_category.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= t :error, count: @event_category.errors.count %>
+      </h2>
+      <ul>
+        <% @event_category.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

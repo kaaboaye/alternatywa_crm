@@ -1,12 +1,9 @@
-
 <h1><%= t :disabled_schools %></h1>
 
 <%= link_to t(:schools_list), schools_path %>
 <table>
   <tr>
-    <th><%= t :name %></th>
-    <th></th>
-    <th></th>
+    <th><%= t "activerecord.attributes.school.name" %></th>
   </tr>
 
   <% @schools.each do |school| %>

@@ -1,2 +1,15 @@
-<h1>Groups#disabled</h1>
-<p>Find me in app/views/groups/disabled.html.erb</p>
+<h1><%= t :disabled_groups %></h1>
+
+<%= link_to t(:groups_list), groups_path %>
+<table>
+  <tr>
+    <th><%= t "activerecord.attributes.group.name" %></th>
+  </tr>
+
+  <% @groups.each do |group| %>
+    <tr>
+      <td><%= group.name %></td>
+      <td><%= link_to t(:restore), controller: "groups", action: "restore", id: group %></td>
+    </tr>
+  <% end %>
+</table>

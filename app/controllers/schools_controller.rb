@@ -1,6 +1,19 @@
 class SchoolsController < ApplicationController
   def index
-    @schools = School.active
+  end
+
+  def search
+    if params.key? :id
+      @schools = School.where id: params[:id]
+    elsif params[:name].blank?
+      @schools = []
+    elsif params.key? :name
+      @schools = School.where "name LIKE ?", "%#{params[:name]}%"
+    else
+      @schools = []
+    end
+
+    render json: @schools
   end
 
   def new

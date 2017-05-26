@@ -4,6 +4,8 @@ pl:
       school: Szkoła
       member: Osoba
       group: Grupa
+      event_category: Kategoria wydarzeń
+      event: Wydarzenie
     attributes:
       school:
         name: Nazwa
@@ -21,13 +23,32 @@ pl:
         mothers_phone: Numer telefonu matki
       group:
         name: Nazwa
+      event_category:
+        name: Nazwa
+      event:
+        name: Nazwa
+      event:
+        name: Nazwa
+        description: Opis
+        event_category_id: Kategoria wydarzenia
 
   helpers:
     submit:
       school:
         create: Dodaj szkołę
+        update: Zaktualizuj szkołę
       member:
         create: Dodaj osobę
+        update: Zaktualizuj osobę
+      group:
+        create: Dodaj grupę
+        update: Zaktualizuj grupę
+      event_category:
+        create: Dodaj kategorię
+        update: Zaktualizuj kategorię
+      event:
+        create: Dodaj wydarzenie
+        update: Zaktualizuj wydarzenie
 
   errors:
     messages:
@@ -65,3 +86,13 @@ pl:
   groups_list: Lista grup
   adding_group: Dodawanie grupy
   disabled_groups: Ukryte grupy
+
+  events: Wydarzenia
+  events_list: Lista wydarzeń
+  adding_event: Dodawanie wydarzenia
+  disabled_events: Ukryta wydarzenia
+
+  event_categories: Kategorie wydarzeń
+  event_category_list: Lista kategorii wydarzeń
+  adding_event_category: Dodawanie kategorii
+  disabled_event_categories: Ukryte kategorie

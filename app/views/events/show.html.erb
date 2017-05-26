@@ -1,0 +1,15 @@
+<h2><%= t "activerecord.models.event" %></h2>
+<p>
+    <%= t "activerecord.attributes.event.name" %>:
+    <%= @event.name %>
+</p>
+<p>
+    <%= t "activerecord.attributes.event.description" %>:
+    <%= @event.description %>
+</p>
+<p>
+    <%= t "activerecord.attributes.event.event_category_id" %>:
+    <%= @event.event_category.name %>
+</p>
+
+<%= link_to t(:back), events_path %>

@@ -1,5 +1,8 @@
 class Event < ApplicationRecord
-    has_many :event_presences
+  scope :active, -> { where active: true }
+  scope :disabled, -> { where active: false }
 
-    belongs_to :event_category
+  has_many :event_presences
+
+  belongs_to :event_category
 end

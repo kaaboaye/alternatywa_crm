@@ -1,0 +1,15 @@
+<h1><%= t :disabled_event_categories %></h1>
+
+<%= link_to t(:event_categories_list), event_categories_path %>
+<table>
+  <tr>
+    <th><%= t "activerecord.attributes.event_category.name" %></th>
+  </tr>
+
+  <% @event_categories.each do |event_category| %>
+    <tr>
+      <td><%= event_category.name %></td>
+      <td><%= link_to t(:restore), controller: "event_categories", action: "restore", id: event_category %></td>
+    </tr>
+  <% end %>
+</table>
