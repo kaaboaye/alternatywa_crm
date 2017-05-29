@@ -4,13 +4,11 @@ class SchoolsController < ApplicationController
 
   def search
     if params.key? :id
-      @schools = School.where id: params[:id]
-    elsif params[:name].blank?
-      @schools = []
-    elsif params.key? :name
-      @schools = School.where "name LIKE ?", "%#{params[:name]}%"
+      @schools = School.active.where id: params[:id]
+    elsif params[:name].present?
+      @schools = School.active.where "name LIKE ?", "%#{params[:name]}%"
     else
-      @schools = []
+      @schools = School.active
     end
 
     render json: @schools

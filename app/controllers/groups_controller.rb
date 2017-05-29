@@ -1,6 +1,19 @@
 class GroupsController < ApplicationController
   def index
-    @groups = Group.active
+  end
+
+  def search
+    if params.key? :id
+      @groups = Group.active.where id: params[:id]
+    elsif params[:name].blank?
+      @groups = Group.active
+    elsif params.key? :name
+      @groups = Group.active.where "name LIKE ?", "%#{params[:name]}%"
+    else
+      @groups = Group.active
+    end
+
+    render json: @groups
   end
 
   def new

@@ -1,6 +1,26 @@
 class MembersController < ApplicationController
   def index
-    @members = Member.active
+  end
+
+  def search
+    if params.key? :id
+      @members = Member.active.where id: params[:id]
+    elsif ( params[:first_name].present? ||
+        params[:last_name].present? ||
+        params[:pesel].present? ||
+        params[:city].present? ||
+        params[:phone].present?)
+      @members = Member.active.joins(:school)
+        .where("first_name LIKE ?", "%#{params[:first_name]}%")
+        .where("last_name LIKE ?", "%#{params[:last_name]}%")
+        .where("pesel LIKE ?", "%#{params[:pesel]}%")
+        .where("city LIKE ?", "%#{params[:city]}%")
+        .where("phone LIKE ?", "%#{params[:phone]}%")
+    else
+      @members = Member.active
+    end
+
+    render json: @members
   end
 
   def new

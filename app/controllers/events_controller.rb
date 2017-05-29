@@ -1,6 +1,19 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.active
+  end
+
+  def search
+    if params.key? :id
+      @events = Event.active.where id: params[:id]
+    elsif params[:name].blank?
+      @events = Event.active
+    elsif params.key? :name
+      @events = Event.active.where "name LIKE ?", "%#{params[:name]}%"
+    else
+      @events = Event.active
+    end
+
+    render json: @events
   end
 
   def new

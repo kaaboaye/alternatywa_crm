@@ -1,18 +1,22 @@
 Rails.application.routes.draw do
   root to: 'home#index'
 
+  get 'events/search'
   get 'events/disabled'
   get 'events/:id/restore', to: 'events#restore'
   resources :events
 
+  get 'event_categories/search'
   get 'event_categories/disabled'
   get 'event_categories/:id/restore', to: 'event_categories#restore'
   resources :event_categories
 
+  get 'groups/search'
   get 'groups/disabled'
   get 'groups/:id/restore', to: 'groups#restore'
   resources :groups
 
+  get 'members/search'
   get 'members/disabled'
   get 'members/:id/restore', to: 'members#restore'
   resources :members

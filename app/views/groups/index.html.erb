@@ -2,21 +2,27 @@
 
 <%= link_to t(:adding_group), new_group_path %>
 <%= link_to t(:disabled_groups), controller: "groups", action: "disabled" %>
-<table>
-  <tr>
-    <th><%= t "activerecord.attributes.group.name" %></th>
-    <th></th>
-    <th></th>
-  </tr>
+<hr />
+<div ng-controller="GroupsCtrl">
 
-  <% @groups.each do |group| %>
-    <tr>
-      <td><%= group.name %></td>
-      <td><%= link_to t(:show), group_path(group) %></td>
-      <td><%= link_to t(:edit), edit_group_path(group) %></td>
-      <td><%= link_to t(:destroy), group_path(group),
-              method: :delete,
-              data: { confirm: t(:are_you_sure) } %></td>
-    </tr>
-  <% end %>
-</table>
+  <input type="text" ng-model="search_name"
+    placeholder="<%= t "activerecord.attributes.group.name" %>" />
+
+  <table>
+    <thead>
+      <tr>
+        <th><%= t "activerecord.attributes.group.name" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="group in groups">
+        <td>{{ group.name }}</td>
+        <td><%= link_to t(:show), URI::unescape(group_path("{{ group.id }}")) %></td>
+        <td><%= link_to t(:edit), URI::unescape(edit_group_path("{{ group.id }}")) %></td>
+        <td><%= link_to t(:destroy), URI::unescape(group_path("{{ group.id }}")),
+                method: :delete,
+                data: { confirm: t(:are_you_sure) } %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

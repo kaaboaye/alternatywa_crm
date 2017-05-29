@@ -58,6 +58,7 @@ pl:
       required: jest wymagana
       invalid_pesel: jest niepoprawny
 
+  project_name: Alternatywa
   main_page: Strona główna
   name: Nazwa
   show: Pokaż
