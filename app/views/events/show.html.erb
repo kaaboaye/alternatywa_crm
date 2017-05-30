@@ -1,3 +1,4 @@
+<% @title = t("activerecord.models.event") + ": " + @event.name %>
 <h2><%= t "activerecord.models.event" %></h2>
 <p>
     <%= t "activerecord.attributes.event.name" %>:
@@ -13,3 +14,4 @@
 </p>
 
 <%= link_to t(:back), events_path %>
+<%= link_to t(:add_event), new_event_path %>

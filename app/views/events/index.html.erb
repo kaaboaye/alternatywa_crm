@@ -1,15 +1,17 @@
+<% @title = t :events_list %>
 <h1><%= t :events_list %></h1>
 
 <%= link_to t(:adding_event), new_event_path %>
 <%= link_to t(:disabled_events), controller: "events", action: "disabled" %>
-<hr />
 
 <div ng-controller="EventsCtrl">
+  <h3><%= t :searching %></h3>
+  <div class="well search-block">
+    <input type="text" ng-model="search_name"
+      placeholder="<%= t "activerecord.attributes.school.name" %>" />
+  </div>
 
-  <input type="text" ng-model="search_name"
-    placeholder="<%= t "activerecord.attributes.school.name" %>" />
-
-  <table>
+  <table class="table-list table-bordered table-striped">
     <thead>
       <tr>
         <th><%= t "activerecord.attributes.event.name" %></th>
@@ -21,8 +23,9 @@
         <td><%= link_to t(:show), URI::unescape(event_path("{{ event.id }}")) %></td>
         <td><%= link_to t(:edit), URI::unescape(edit_event_path("{{ event.id }}")) %></td>
         <td><%= link_to t(:destroy), URI::unescape(event_path("{{ event.id }}")),
-                method: :delete,
-                data: { confirm: t(:are_you_sure) } %></td>
+                  method: :delete,
+                  data: { confirm: t(:are_you_sure) } %></td>
+        </td>
       </tr>
     </tbody>
   </table>

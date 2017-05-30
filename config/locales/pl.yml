@@ -16,13 +16,14 @@ pl:
         street: Ulica
         house_number: Numer domu
         city: Miasto
-        school: Szkoła
+        school_id: Szkoła
         work: Praca
         phone: Numer telefonu
         fathers_phone: Numer telefonu ojca
         mothers_phone: Numer telefonu matki
       group:
         name: Nazwa
+        description: Opis
       event_category:
         name: Nazwa
       event:
@@ -59,7 +60,7 @@ pl:
       invalid_pesel: jest niepoprawny
 
   project_name: Alternatywa
-  main_page: Strona główna
+#  main_page: Strona główna
   name: Nazwa
   show: Pokaż
   error:
@@ -70,9 +71,15 @@ pl:
   restore: Przywróć
   destroy: Usuń
   are_you_sure: Czy na pewno?
+  searching: Wyszukiwanie
+  data: Dane
+  not_found: 404 Nie znaleziono elementu
+  date: Data
+  time: Godzina
 
   schools: Szkoły
   adding_school: Dodawanie szkoły
+  add_school: Dodaj szkołę
   schools_list: Lista szkół
   disabled_schools: Ukryte szkoły
   edit_school: Edycja szkoły
@@ -87,10 +94,20 @@ pl:
   groups_list: Lista grup
   adding_group: Dodawanie grupy
   disabled_groups: Ukryte grupy
+  show_group: Pokaż grupę
+  add_group: Dodaj grupę
+
+  presences_list: Lista obecności
+  adding_presence_list: Dodawanie listy obecności
+  add_presence: Dodaj obecność
+
+  group_presences_list: Lista obecności w grupie
 
   events: Wydarzenia
   events_list: Lista wydarzeń
   adding_event: Dodawanie wydarzenia
+  add_event: Dodaj wydarzenie
+  edit_group: Edytuj grupę
   disabled_events: Ukryta wydarzenia
 
   event_categories: Kategorie wydarzeń

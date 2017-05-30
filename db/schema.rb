@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20170522151713) do
     t.boolean "active", default: true
     t.string "name"
     t.text "description"
+    t.date "datatime"
     t.integer "event_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -41,7 +42,7 @@ ActiveRecord::Schema.define(version: 20170522151713) do
     t.boolean "active", default: true
     t.integer "member_id"
     t.integer "group_id"
-    t.time "time"
+    t.date "datetime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

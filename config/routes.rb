@@ -14,7 +14,16 @@ Rails.application.routes.draw do
   get 'groups/search'
   get 'groups/disabled'
   get 'groups/:id/restore', to: 'groups#restore'
-  resources :groups
+  get 'groups/presence', to: 'group_presences#index'
+  resources :groups do
+    get 'presence', to: 'group_presences#show'
+    get 'presence/new', to: 'group_presences#new'
+  end
+
+  get 'group_presences/search'
+  get 'group_presences/disabled'
+  get 'group_presences/:id/restore', to: 'group_presences#restore'
+  #resources :group_presences
 
   get 'members/search'
   get 'members/disabled'
@@ -26,7 +35,17 @@ Rails.application.routes.draw do
   get 'schools/:id/restore', to: 'schools#restore'
   resources :schools
 
-  resources :lesson
+
+    get 'lessons/index'
+
+    get 'lessons/new'
+
+    get 'lessons/show'
+
+    get 'lessons/edit'
+
+    get 'lessons/disabled'
+
   resources :lesson_subject
 
 

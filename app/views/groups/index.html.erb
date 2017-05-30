@@ -1,3 +1,4 @@
+<% @title = t :groups_list %>
 <h1><%= t :groups_list %></h1>
 
 <%= link_to t(:adding_group), new_group_path %>
@@ -5,10 +6,13 @@
 <hr />
 <div ng-controller="GroupsCtrl">
 
-  <input type="text" ng-model="search_name"
-    placeholder="<%= t "activerecord.attributes.group.name" %>" />
+  <h3><%= t :searching %></h3>
+  <div class="well search-block">
+    <input type="text" ng-model="search_name"
+      placeholder="<%= t "activerecord.attributes.group.name" %>" />
+  </div>
 
-  <table>
+  <table class="table-list table-bordered table-striped">
     <thead>
       <tr>
         <th><%= t "activerecord.attributes.group.name" %></th>
@@ -18,6 +22,7 @@
       <tr ng-repeat="group in groups">
         <td>{{ group.name }}</td>
         <td><%= link_to t(:show), URI::unescape(group_path("{{ group.id }}")) %></td>
+        <td><%= link_to t(:add_presence), URI::unescape(group_presence_new_path("{{ group.id }}")) %></td>
         <td><%= link_to t(:edit), URI::unescape(edit_group_path("{{ group.id }}")) %></td>
         <td><%= link_to t(:destroy), URI::unescape(group_path("{{ group.id }}")),
                 method: :delete,

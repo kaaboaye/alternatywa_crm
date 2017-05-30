@@ -10,7 +10,7 @@ class MembersController < ApplicationController
         params[:pesel].present? ||
         params[:city].present? ||
         params[:phone].present?)
-      @members = Member.active.joins(:school)
+      @members = Member.active
         .where("first_name LIKE ?", "%#{params[:first_name]}%")
         .where("last_name LIKE ?", "%#{params[:last_name]}%")
         .where("pesel LIKE ?", "%#{params[:pesel]}%")

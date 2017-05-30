@@ -1,0 +1,55 @@
+<% @title = t :adding_presence_list %>
+<h1><%= t :adding_presence_list %></h1>
+<h3><%= t "activerecord.models.group" %>: <%= @group.name %></h3>
+
+<%= link_to t(:show_group), group_path(@group) %>
+
+<div ng-controller="GroupPresenceCtrl">
+  <div class="well search-block">
+    <label><%= t :date %></label>
+    <input type="datetime-local" ng-model="time" />
+    <hr />
+    <label><%= t :members %></label>
+    <input type="text" ng-model="member.first_name"
+      placeholder="<%= t "activerecord.attributes.member.first_name" %>" />
+    <input type="text" ng-model="member.last_name"
+      placeholder="<%= t "activerecord.attributes.member.last_name" %>" />
+    <input type="text" ng-model="member.phone"
+      placeholder="<%= t "activerecord.attributes.member.phone" %>" />
+
+    <table class="table-list table-bordered table-striped">
+      <thead>
+        <tr>
+          <th><%= t "activerecord.attributes.member.first_name" %></th>
+          <th><%= t "activerecord.attributes.member.last_name" %></th>
+          <th><%= t "activerecord.attributes.member.phone" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="member" ng-repeat="member in members">
+          <td>{{ member.first_name }}</td>
+          <td>{{ member.last_name }}</td>
+          <td>{{ member.phone }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3><%= t :added_members %></h3>
+  <table class="table-list table-bordered table-striped">
+    <thead>
+      <tr>
+        <th><%= t "activerecord.attributes.member.first_name" %></th>
+        <th><%= t "activerecord.attributes.member.last_name" %></th>
+        <th><%= t "activerecord.attributes.member.phone" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="member" ng-repeat="member in added_members">
+        <td>{{ member.first_name }}</td>
+        <td>{{ member.last_name }}</td>
+        <td>{{ member.phone }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

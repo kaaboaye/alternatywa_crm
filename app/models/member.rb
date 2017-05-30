@@ -26,14 +26,14 @@ class Member < ApplicationRecord
     allow_blank: true,
     length: { minimum: 1 }
   validates :city,
-    allow_blank: true,
+    presence: true,
     length: { minimum: 3 }
   validates_associated :school
   validates :work,
     allow_blank: true,
     length: { minimum: 3 }
   validates :phone,
-    allow_blank: true,
+    presence: true,
     length: { maximum: 13, minimum: 9 },
     numericality: { only_integer: true }
   validates :fathers_phone,

@@ -1,3 +1,4 @@
+<% @title = t("activerecord.models.group") + ": " + @group.name %>
 <h2><%= t "activerecord.models.group" %></h2>
 <p>
     <%= t "activerecord.attributes.group.name" %>:
@@ -9,3 +10,4 @@
 </p>
 
 <%= link_to t(:back), groups_path %>
+<%= link_to t(:add_group), new_group_path %>
