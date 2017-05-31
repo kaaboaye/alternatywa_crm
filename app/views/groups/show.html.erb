@@ -1,5 +1,11 @@
 <% @title = t("activerecord.models.group") + ": " + @group.name %>
+
 <h2><%= t "activerecord.models.group" %></h2>
+<%= link_to t(:back), groups_path %>
+<%= link_to t(:edit_group), edit_group_path(@group) %>
+<%= link_to t(:add_presence), group_presence_new_path(@group) %>
+<%= link_to t(:add_group), new_group_path %>
+
 <p>
     <%= t "activerecord.attributes.group.name" %>:
     <%= @group.name %>
@@ -9,5 +15,21 @@
     <%= @group.description %>
 </p>
 
-<%= link_to t(:back), groups_path %>
-<%= link_to t(:add_group), new_group_path %>
+<div ng-controller="GroupsPresencesListCtrl">
+  <input type="hidden" ng-init="group_id=<%= @group.id %>" />
+  <div class="alert alert-danger" ng-repeat="error in errors">
+    {{ error }}
+  </div>
+  <div class="well search-block">
+    <label><%= t :since %></label>
+    <input type="datetime-local" ng-model="since" />
+    <label><%= t :pending %></label>
+    <input type="datetime-local" ng-model="finish" />
+  </div>
+  <h2><%= t :presences_lists %></h2>
+  <ul>
+    <li ng-repeat="list in lists">
+      <a href="<%= params[:id] %>/presence/{{ list.id }}">{{ list.name }}</a>
+    </li>
+  </ul>
+</div>

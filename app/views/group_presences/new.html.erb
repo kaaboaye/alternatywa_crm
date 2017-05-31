@@ -3,12 +3,23 @@
 <h3><%= t "activerecord.models.group" %>: <%= @group.name %></h3>
 
 <%= link_to t(:show_group), group_path(@group) %>
+<% if params[:list_id].present? %>
+  <%= link_to t(:show_list),
+        controller: "group_presences",
+        action: "show",
+        group_id: params[:group_id],
+        list_id: params[:list_id] %>
+<% end %>
 
 <div ng-controller="GroupPresenceCtrl">
   <div class="well search-block">
-    <label><%= t :date %></label>
-    <input type="datetime-local" ng-model="time" />
-    <hr />
+    <% if params[:list_id].present? %>
+      <input type="hidden" ng-init="set_date(<%= params[:list_id] %>)"></input>
+    <% else %>
+      <label><%= t :date %></label>
+      <input type="datetime-local" ng-model="datetime" />
+      <hr />
+    <% end %>
     <label><%= t :members %></label>
     <input type="text" ng-model="member.first_name"
       placeholder="<%= t "activerecord.attributes.member.first_name" %>" />
@@ -26,10 +37,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="member" ng-repeat="member in members">
+        <tr ng-click="add(member)" ng-repeat="member in members">
           <td>{{ member.first_name }}</td>
           <td>{{ member.last_name }}</td>
           <td>{{ member.phone }}</td>
+          <td><%= link_to t(:show), URI::unescape(member_path("{{ member.id }}")) %></td>
         </tr>
       </tbody>
     </table>
@@ -45,10 +57,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="member" ng-repeat="member in added_members">
-        <td>{{ member.first_name }}</td>
-        <td>{{ member.last_name }}</td>
-        <td>{{ member.phone }}</td>
+      <tr class="r" ng-repeat="r in added_members">
+        <td>{{ r.member.first_name }}</td>
+        <td>{{ r.member.last_name }}</td>
+        <td>{{ r.member.phone }}</td>
+        <td><%= link_to t(:show), URI::unescape(member_path("{{ r.member.id }}")) %></td>
+        <td><a href="#" ng-click="destroy(r.id)" ><%= t :destroy %></a></td>
       </tr>
     </tbody>
   </table>

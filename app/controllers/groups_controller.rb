@@ -16,6 +16,23 @@ class GroupsController < ApplicationController
     render json: @groups
   end
 
+  def search_lists
+    if params[:since].present? && params[:finish].present?
+      since = Time.at(params[:since].to_f)
+      finish = Time.at(params[:finish].to_f)
+
+      group_lists = GroupPresence.active
+        .select(:datetime)
+        .where(group_id: params[:group_id])
+        .where(:datetime => since..finish)
+        .group(:datetime)
+    else
+      group_lists = []
+    end
+
+    render json: group_lists
+  end
+
   def new
     @group = Group.new
   end

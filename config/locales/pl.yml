@@ -76,6 +76,8 @@ pl:
   not_found: 404 Nie znaleziono elementu
   date: Data
   time: Godzina
+  since: Od
+  pending: Do
 
   schools: Szkoły
   adding_school: Dodawanie szkoły
@@ -87,6 +89,8 @@ pl:
   members: Osoby
   members_list: Lista osób
   adding_member: Dodawanie osoby
+  add_member: Dodaj osobę
+  added_members: Dodane osoby
   edit_member: Edycja osoby
   disabled_members: Ukryte osoby
 
@@ -98,8 +102,10 @@ pl:
   add_group: Dodaj grupę
 
   presences_list: Lista obecności
+  presences_lists: Listy obecności
   adding_presence_list: Dodawanie listy obecności
   add_presence: Dodaj obecność
+  show_list: Pokaż listę
 
   group_presences_list: Lista obecności w grupie
 

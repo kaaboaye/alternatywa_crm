@@ -1,2 +1,21 @@
-<h1>GroupPresences#show</h1>
-<p>Find me in app/views/group_presences/show.html.erb</p>
+<h1><%= @title = t :presences_list %></h1>
+
+<h3><%= t "activerecord.models.group" %>: <%= @group.name %></h3>
+
+<%= link_to t(:show_group), group_path(@group) %>
+<a href="new?list_id=<%= params[:list_id] %>"><%= t(:add_presence) %></a>
+
+<table class="table-list table-bordered table-striped">
+  <tr>
+    <th><%= t "activerecord.attributes.member.first_name" %></th>
+    <th><%= t "activerecord.attributes.member.last_name" %></th>
+    <th><%= t "activerecord.attributes.member.phone" %></th>
+  </tr>
+
+  <% @members.each do |member| %>
+    <tr>
+      <td><%= member.first_name %></td>
+      <td><%= member.last_name %></td>
+      <td><%= member.phone %></td>
+  <% end %>
+</table>

@@ -4,7 +4,7 @@ class CreateGroupPresences < ActiveRecord::Migration[5.1]
       t.boolean :active, :default => true
       t.integer :member_id
       t.integer :group_id
-      t.date :datetime
+      t.datetime :datetime
 
       t.timestamps
     end

@@ -1,3 +1,4 @@
+<% @title = "#{@member.first_name} #{@member.last_name}" %>
 <h2><%= t "activerecord.models.member" %></h2>
 <p>
     <%= t "activerecord.attributes.member.first_name" %>:
@@ -45,4 +46,4 @@
 </p>
 
 <%= link_to t(:back), members_path %>
-<%= link_to t(:add_school), new_member_path %>
+<%= link_to t(:add_member), new_member_path %>

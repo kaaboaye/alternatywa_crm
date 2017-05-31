@@ -15,15 +15,14 @@ Rails.application.routes.draw do
   get 'groups/disabled'
   get 'groups/:id/restore', to: 'groups#restore'
   get 'groups/presence', to: 'group_presences#index'
+  delete 'groups/presence', to: 'group_presences#destroy'
   resources :groups do
-    get 'presence', to: 'group_presences#show'
+    get 'search_lists', to: 'groups#search_lists'
     get 'presence/new', to: 'group_presences#new'
+    get 'presence/search', to: 'group_presences#search'
+    post 'presence/create', to: 'group_presences#create'
+    get 'presence/:list_id', to: 'group_presences#show'
   end
-
-  get 'group_presences/search'
-  get 'group_presences/disabled'
-  get 'group_presences/:id/restore', to: 'group_presences#restore'
-  #resources :group_presences
 
   get 'members/search'
   get 'members/disabled'
@@ -34,17 +33,6 @@ Rails.application.routes.draw do
   get 'schools/disabled'
   get 'schools/:id/restore', to: 'schools#restore'
   resources :schools
-
-
-    get 'lessons/index'
-
-    get 'lessons/new'
-
-    get 'lessons/show'
-
-    get 'lessons/edit'
-
-    get 'lessons/disabled'
 
   resources :lesson_subject
 
