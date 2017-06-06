@@ -47,12 +47,23 @@
               <li><%= link_to t(:events_list), events_path %></li>
               <li><%= link_to t(:adding_event), new_event_path %></li>
               <li><%= link_to t(:disabled_events), controller: "events", action: "disabled" %></li>
-            <%= raw dropdown_end %>
 
-            <%= raw dropdown_begin t :event_categories %>
+              <li role="separator" class="divider"></li>
+              <li class="dropdown-header"><%= t :event_categories %></li>
               <li><%= link_to t(:event_category_list), event_categories_path %></li>
               <li><%= link_to t(:adding_event_category), new_event_category_path %></li>
               <li><%= link_to t(:disabled_event_categories), controller: "event_categories", action: "disabled" %></li>
+            <%= raw dropdown_end %>
+
+            <%= raw dropdown_begin t :lessons %>
+              <li><%= link_to t(:lessons_list), lessons_path %></li>
+              <li><%= link_to t(:adding_lesson), new_lesson_path %></li>
+
+              <li role="separator" class="divider"></li>
+              <li class="dropdown-header"><%= t :lesson_subjects %></li>
+              <li><%= link_to t(:lesson_subjects_list), lesson_subjects_path %></li>
+              <li><%= link_to t(:adding_lesson_subject), new_lesson_subject_path %></li>
+              <li><%= link_to t(:disabled_lesson_subjects), controller: "lesson_subjects", action: "disabled" %></li>
             <%= raw dropdown_end %>
           </ul>
         </div>

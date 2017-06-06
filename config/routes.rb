@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
   root to: 'home#index'
 
+  ## Event categories
+  scope 'events/categories', as: 'event_category' do
+    get 'search', to: 'event_categories#search'
+    get 'disabled', to: 'event_categories#disabled'
+    get ':id/restore', to: 'event_categories#restore'
+  end
+  resources :event_categories, path: 'events/categories'
+
+  ## Events
   get 'events/search'
   get 'events/disabled'
   delete 'events/presence', to: 'event_presences#destroy'
@@ -11,11 +20,7 @@ Rails.application.routes.draw do
     post 'presence/create', to: 'event_presences#create'
   end
 
-  get 'event_categories/search'
-  get 'event_categories/disabled'
-  get 'event_categories/:id/restore', to: 'event_categories#restore'
-  resources :event_categories
-
+  ## Groups
   get 'groups/search'
   get 'groups/disabled'
   get 'groups/:id/restore', to: 'groups#restore'
@@ -29,17 +34,28 @@ Rails.application.routes.draw do
     get 'presence/:list_id', to: 'group_presences#show'
   end
 
+  ## Members
   get 'members/search'
   get 'members/disabled'
   get 'members/:id/restore', to: 'members#restore'
   resources :members
 
+  ## Schools
   get 'schools/search'
   get 'schools/disabled'
   get 'schools/:id/restore', to: 'schools#restore'
   resources :schools
 
-  resources :lesson_subject
+  ## Lesson subjects
+  resources :lesson_subjects, path: 'lessons/subjects'
+  scope 'lessons/subjects', as: 'lesson_subjects' do
+    get 'search', to: 'lesson_subjects#search'
+    get 'disabled', to: 'lesson_subjects#disabled'
+    get ':id/restore', to: 'lesson_subjects#restore'
+  end
+
+  ## Lessons
+  resources :lessons
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

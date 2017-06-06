@@ -12,6 +12,9 @@ class EventsController < ApplicationController
     elsif params[:name].present?
       events = Event.active
                 .where("name LIKE ?", "%#{params[:name]}%")
+    elsif params[:event_category_id].present?
+      events = Event.active
+                .where(event_category_id: params[:event_category_id])
     else
       events = Event.active
     end

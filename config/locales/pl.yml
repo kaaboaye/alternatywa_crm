@@ -65,6 +65,14 @@ pl:
   add_event_category: Dodaj kategorię wydarzeń
   disabled_event_categories: Ukryte kategorie
 
+  lessons: Korepetycje
+  lessons_list: Lista korepetycji
+  adding_lesson: Dodawanie spotkania
+
+  lesson_subjects: Tematy korepetycji
+  lesson_subjects_list: Lista tematów korepetycji
+  adding_lesson_subject: Dodawanie tematu korepetycji
+  disabled_lesson_subjects: Ukryte tematy korepetycji
 
   activerecord:
     models:
