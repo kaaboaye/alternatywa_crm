@@ -47,12 +47,12 @@ Rails.application.routes.draw do
   resources :schools
 
   ## Lesson subjects
-  resources :lesson_subjects, path: 'lessons/subjects'
   scope 'lessons/subjects', as: 'lesson_subjects' do
     get 'search', to: 'lesson_subjects#search'
     get 'disabled', to: 'lesson_subjects#disabled'
     get ':id/restore', to: 'lesson_subjects#restore'
   end
+  resources :lesson_subjects, path: 'lessons/subjects'
 
   ## Lessons
   resources :lessons

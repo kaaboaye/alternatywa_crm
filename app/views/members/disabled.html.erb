@@ -2,14 +2,11 @@
 <h1><%= t :disabled_members %></h1>
 
 <%= link_to t(:members_list), members_path %>
-<table>
+<table class="table-list table-bordered table-striped">
   <tr>
     <th><%= t "activerecord.attributes.member.first_name" %></th>
     <th><%= t "activerecord.attributes.member.last_name" %></th>
     <th><%= t "activerecord.attributes.member.pesel" %></th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
   <% @members.each do |member| %>
