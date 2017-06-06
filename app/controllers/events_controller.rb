@@ -4,19 +4,30 @@ class EventsController < ApplicationController
 
   def search
     if params[:id].present?
-      events = Event.active.where id: params[:id]
+      events = Event.active
+        .includes(:event_category)
+        .select(:id, :name, :event_category_id)
+        .where(id: params[:id])
     elsif params[:name].present? && params[:event_category_id].present?
       events = Event.active
-                .where("name LIKE ?", "%#{params[:name]}%")
-                .where(event_category_id: params[:event_category_id])
+        .includes(:event_category)
+        .select(:id, :name, :event_category_id)
+        .where("name LIKE ?", "%#{params[:name]}%")
+        .where(event_category_id: params[:event_category_id])
     elsif params[:name].present?
       events = Event.active
-                .where("name LIKE ?", "%#{params[:name]}%")
+        .includes(:event_category)
+        .select(:id, :name, :event_category_id)
+        .where("name LIKE ?", "%#{params[:name]}%")
     elsif params[:event_category_id].present?
       events = Event.active
-                .where(event_category_id: params[:event_category_id])
+        .includes(:event_category)
+        .select(:id, :name, :event_category_id)
+        .where(event_category_id: params[:event_category_id])
     else
       events = Event.active
+        .includes(:event_category)
+        .select(:id, :name, :event_category_id)
     end
 
     json_enevts = []

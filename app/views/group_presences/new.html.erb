@@ -68,7 +68,7 @@
         <td>{{ r.member.last_name }}</td>
         <td>{{ r.member.phone }}</td>
         <td><%= link_to t(:show), URI::unescape(member_path("{{ r.member.id }}")) %></td>
-        <td><a href="#" ng-click="destroy(r.id)" ><%= t :destroy %></a></td>
+        <td><a href="javascript:void(0)" ng-click="destroy(r.id)" ><%= t :destroy %></a></td>
       </tr>
     </tbody>
   </table>

@@ -1,7 +1,7 @@
 <h1><%= @title = t :presences_list %></h1>
 
 <h4><%= t "activerecord.models.group" %>: <%= @group.name %></h4>
-<h4><%= t :date %>: <%= @date %></h4>
+<h4><%= t :_date %>: <%= @date %></h4>
 
 <%= link_to t(:back), groups_path %>
 <%= link_to t(:show_group), group_path(@group) %>

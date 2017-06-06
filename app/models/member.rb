@@ -1,10 +1,13 @@
 class Member < ApplicationRecord
-  scope :active, -> { where active: true }
-  scope :disabled, -> { where active: false }
-
   has_many :group_presences
   has_many :event_presences
-  
+  has_many :giving_lessons,
+    class_name: 'Lesson',
+    foreign_key: 'giving_member_id'
+  has_many :taking_lessons,
+    class_name: 'Lesson',
+    foreign_key: 'taking_member_id'
+
   belongs_to :school
 
   validates :first_name,

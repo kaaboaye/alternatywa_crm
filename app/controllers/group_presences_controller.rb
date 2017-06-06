@@ -5,6 +5,7 @@ class GroupPresencesController < ApplicationController
   def search
     if params[:datetime].present?
       grop_presences = GroupPresence.active
+        .includes(:member)
         .select(:id, :member_id)
         .where(group_id: params[:group_id])
         .where(datetime: Time.at(params[:datetime].to_f))
@@ -56,6 +57,7 @@ class GroupPresencesController < ApplicationController
     @group = Group.find_by_id(params[:group_id]) or not_found
 
     list = GroupPresence.active
+      .includes(:member)
       .select(:member_id)
       .where(group_id: params[:group_id])
       .where(datetime: Time.at(params[:list_id].to_f))

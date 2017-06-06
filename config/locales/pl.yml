@@ -110,6 +110,11 @@ pl:
         event_category_id: Kategoria wydarzenia
       event_presence:
         time: Czas
+      lesson:
+        giving_member_id: Udzielający
+        taking_member_id: Pobierający
+        lesson_subject_id: Temat
+        datetime: Data
     errors:
       messages:
         record_invalid: 'Negatywne sprawdzenie poprawności: %{errors}'

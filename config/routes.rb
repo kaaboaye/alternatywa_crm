@@ -55,6 +55,7 @@ Rails.application.routes.draw do
   resources :lesson_subjects, path: 'lessons/subjects'
 
   ## Lessons
+  get 'lessons/search'
   resources :lessons
 
 

@@ -1,7 +1,4 @@
 class GroupPresence < ApplicationRecord
-  scope :active, -> { where active: true }
-  scope :disabled, -> { where active: false }
-
   belongs_to :group
   belongs_to :member
 

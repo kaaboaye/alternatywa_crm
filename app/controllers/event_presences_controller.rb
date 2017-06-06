@@ -5,6 +5,7 @@ class EventPresencesController < ApplicationController
 
   def list
     event_presences = EventPresence.active
+      .includes(:member)
       .select(:id, :time, :member_id)
       .where(event_id: params[:event_id])
 
