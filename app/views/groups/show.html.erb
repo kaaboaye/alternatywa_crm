@@ -16,6 +16,7 @@
 </p>
 
 <div ng-controller="GroupsPresencesListCtrl">
+  <h2><%= t :presences_lists %></h2>
   <input type="hidden" ng-init="group_id=<%= @group.id %>" />
   <div class="alert alert-danger" ng-repeat="error in errors">
     {{ error }}
@@ -26,7 +27,6 @@
     <label><%= t :pending %></label>
     <input type="datetime-local" ng-model="finish" />
   </div>
-  <h2><%= t :presences_lists %></h2>
   <ul>
     <li ng-repeat="list in lists">
       <a href="<%= params[:id] %>/presence/{{ list.id }}">{{ list.name }}</a>

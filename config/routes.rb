@@ -3,8 +3,13 @@ Rails.application.routes.draw do
 
   get 'events/search'
   get 'events/disabled'
+  delete 'events/presence', to: 'event_presences#destroy'
   get 'events/:id/restore', to: 'events#restore'
-  resources :events
+  resources :events do
+    get 'presence', to: 'event_presences#index'
+    get 'presence/list', to: 'event_presences#list'
+    post 'presence/create', to: 'event_presences#create'
+  end
 
   get 'event_categories/search'
   get 'event_categories/disabled'

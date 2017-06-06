@@ -21,7 +21,6 @@
     <tbody>
       <tr ng-repeat="school in schools">
         <td>{{ school.name }}</td>
-        <td><%= link_to t(:show), URI::unescape(school_path("{{ school.id }}")) %></td>
         <td><%= link_to t(:edit), URI::unescape(edit_school_path("{{ school.id }}")) %></td>
         <td><%= link_to t(:destroy), URI::unescape(school_path("{{ school.id }}")),
                 method: :delete,

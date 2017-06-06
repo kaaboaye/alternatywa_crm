@@ -1,8 +1,17 @@
 <% @title = t("activerecord.models.event") + ": " + @event.name %>
 <h2><%= t "activerecord.models.event" %></h2>
+
+<%= link_to t(:back), events_path %>
+<%= link_to t(:edit_event), edit_event_path(@event) %>
+<%= link_to t(:add_event), new_event_path %>
+
 <p>
     <%= t "activerecord.attributes.event.name" %>:
     <%= @event.name %>
+</p>
+<p>
+    <%= t "activerecord.attributes.event.datetime" %>:
+    <%= @event.datetime %>
 </p>
 <p>
     <%= t "activerecord.attributes.event.description" %>:
@@ -12,6 +21,3 @@
     <%= t "activerecord.attributes.event.event_category_id" %>:
     <%= @event.event_category.name %>
 </p>
-
-<%= link_to t(:back), events_path %>
-<%= link_to t(:add_event), new_event_path %>

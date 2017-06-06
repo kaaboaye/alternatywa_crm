@@ -3,17 +3,15 @@ class GroupsController < ApplicationController
   end
 
   def search
-    if params.key? :id
-      @groups = Group.active.where id: params[:id]
-    elsif params[:name].blank?
-      @groups = Group.active
-    elsif params.key? :name
-      @groups = Group.active.where "name LIKE ?", "%#{params[:name]}%"
+    if params[:id].present?
+      groups = Group.active.where id: params[:id]
+    elsif params[:name].present?
+      groups = Group.active.where "name LIKE ?", "%#{params[:name]}%"
     else
-      @groups = Group.active
+      groups = Group.active
     end
 
-    render json: @groups
+    render json: groups
   end
 
   def search_lists
@@ -26,6 +24,7 @@ class GroupsController < ApplicationController
         .where(group_id: params[:group_id])
         .where(:datetime => since..finish)
         .group(:datetime)
+        .order(datetime: :desc)
     else
       group_lists = []
     end

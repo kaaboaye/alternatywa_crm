@@ -4,6 +4,7 @@ class CreateGroups < ActiveRecord::Migration[5.1]
       t.boolean :active, :default => true
       t.string :name
       t.text :description
+      t.time :time
 
       t.timestamps
     end

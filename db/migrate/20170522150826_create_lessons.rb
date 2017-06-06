@@ -6,7 +6,7 @@ class CreateLessons < ActiveRecord::Migration[5.1]
       t.integer :taking_member_id
       t.integer :lesson_subject_id
       t.time :time
-      t.datetime :date_time
+      t.datetime :datetime
 
       t.timestamps
     end

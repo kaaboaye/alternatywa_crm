@@ -3,17 +3,29 @@ class EventsController < ApplicationController
   end
 
   def search
-    if params.key? :id
-      @events = Event.active.where id: params[:id]
-    elsif params[:name].blank?
-      @events = Event.active
-    elsif params.key? :name
-      @events = Event.active.where "name LIKE ?", "%#{params[:name]}%"
+    if params[:id].present?
+      events = Event.active.where id: params[:id]
+    elsif params[:name].present? && params[:event_category_id].present?
+      events = Event.active
+                .where("name LIKE ?", "%#{params[:name]}%")
+                .where(event_category_id: params[:event_category_id])
+    elsif params[:name].present?
+      events = Event.active
+                .where("name LIKE ?", "%#{params[:name]}%")
     else
-      @events = Event.active
+      events = Event.active
     end
 
-    render json: @events
+    json_enevts = []
+    events.each do |event|
+      json_enevts.push(
+        id: event.id,
+        name: event.name,
+        category: event.event_category.name
+      )
+    end
+
+    render json: json_enevts
   end
 
   def new
@@ -73,6 +85,7 @@ class EventsController < ApplicationController
 
 private
   def event_params
-    params.require(:event).permit :name, :description, :event_category_id
+    params.require(:event).permit :name, :description, :event_category_id,
+      :datetime
   end
 end

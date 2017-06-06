@@ -12,15 +12,15 @@ class GroupPresencesController < ApplicationController
       grop_presences = []
     end
 
-    @members = []
+    members = []
     grop_presences.each do |grop_presence|
-      @members.push({
+      members.push({
           id: grop_presence.id,
           member: grop_presence.member
         })
     end
 
-    render json: @members
+    render json: members
   end
 
   def new
@@ -64,6 +64,9 @@ class GroupPresencesController < ApplicationController
     list.each do |item|
       @members.push item.member
     end
+
+    @date = Time.at params[:list_id].to_i
+    @date.to_formatted_s :long
   end
 
 private

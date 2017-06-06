@@ -1,38 +1,20 @@
-<h1><%= @title = t :adding_presence_list %></h1>
-<h4><%= t "activerecord.models.group" %>: <%= @group.name %></h4>
-<% if params[:list_id].present?
-  @date = Time.at params[:list_id].to_f
-  @date.to_formatted_s :long
-  %>
-  <h4><%= t :_date %>: <%= @date %></h4>
-<% end %>
+<h1><%= @title = t :presences_list %></h1>
+<h4><%= t "activerecord.models.event" %>: <%= @event.name %></h4>
+<h4><%= t :_date %>: <%= @event.datetime %></h4>
 
-<%= link_to t(:back), groups_path %>
-<%= link_to t(:show_group), group_path(@group) %>
-<% if params[:list_id].present? %>
-  <%= link_to t(:show_list),
-        controller: "group_presences",
-        action: "show",
-        group_id: params[:group_id],
-        list_id: params[:list_id] %>
-<% end %>
+<%= link_to t(:back), events_path %>
+<%= link_to t(:show_event), event_path(@event) %>
 
-<div ng-controller="GroupPresenceCtrl">
+<div ng-controller="EventPresenceCtrl" ng-init="update_added()">
   <div class="well search-block">
-    <% if params[:list_id].present? %>
-      <input type="hidden" ng-init="set_date(<%= params[:list_id] %>)"></input>
-    <% else %>
-      <label><%= t :_date %></label>
-      <input type="datetime-local" ng-model="datetime" />
-      <hr />
-    <% end %>
-    <label><%= t :members %></label>
     <input type="text" ng-model="member.first_name"
       placeholder="<%= t "activerecord.attributes.member.first_name" %>" />
     <input type="text" ng-model="member.last_name"
       placeholder="<%= t "activerecord.attributes.member.last_name" %>" />
     <input type="text" ng-model="member.phone"
       placeholder="<%= t "activerecord.attributes.member.phone" %>" />
+    <label><%= t :_timestamp %></label>
+    <input type="time" ng-model="time" />
 
     <table class="table-list table-bordered table-striped">
       <thead>
@@ -60,6 +42,7 @@
         <th><%= t "activerecord.attributes.member.first_name" %></th>
         <th><%= t "activerecord.attributes.member.last_name" %></th>
         <th><%= t "activerecord.attributes.member.phone" %></th>
+        <th><%= t "activerecord.attributes.event_presence.time" %></th>
       </tr>
     </thead>
     <tbody>
@@ -67,6 +50,7 @@
         <td>{{ r.member.first_name }}</td>
         <td>{{ r.member.last_name }}</td>
         <td>{{ r.member.phone }}</td>
+        <td>{{ r.time }}</td>
         <td><%= link_to t(:show), URI::unescape(member_path("{{ r.member.id }}")) %></td>
         <td><a href="#" ng-click="destroy(r.id)" ><%= t :destroy %></a></td>
       </tr>

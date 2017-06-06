@@ -4,7 +4,7 @@ class CreateEvents < ActiveRecord::Migration[5.1]
       t.boolean :active, :default => true
       t.string :name
       t.text :description
-      t.date :datatime
+      t.datetime :datetime
       t.integer :event_category_id
 
       t.timestamps

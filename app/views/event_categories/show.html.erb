@@ -1,7 +1,9 @@
+<% @title = @event_category.name %>
 <h2><%= t "activerecord.models.event_category" %></h2>
+<%= link_to t(:back), event_categories_path %>
+<%= link_to t(:add_event_category), new_event_category_path %>
+
 <p>
     <%= t "activerecord.attributes.event_category.name" %>:
     <%= @event_category.name %>
 </p>
-
-<%= link_to t(:back), event_categories_path %>

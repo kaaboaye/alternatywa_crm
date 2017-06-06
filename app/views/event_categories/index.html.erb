@@ -1,8 +1,8 @@
-<h1><%= t :event_category_list %></h1>
+<h1><%= @title = t :event_category_list %></h1>
 
 <%= link_to t(:adding_event_category), new_event_category_path %>
 <%= link_to t(:disabled_event_categories), controller: "event_categories", action: "disabled" %>
-<table>
+<table class="table-list table-bordered table-striped">
   <tr>
     <th><%= t "activerecord.attributes.event_category.name" %></th>
   </tr>
@@ -10,7 +10,6 @@
   <% @event_categories.each do |event_category| %>
     <tr>
       <td><%= event_category.name %></td>
-      <td><%= link_to t(:show), event_category_path(event_category) %></td>
       <td><%= link_to t(:edit), edit_event_category_path(event_category) %></td>
       <td><%= link_to t(:destroy), event_category_path(event_category),
               method: :delete,

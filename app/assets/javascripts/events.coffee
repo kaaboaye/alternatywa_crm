@@ -1,5 +1,10 @@
 @app.controller "EventsCtrl", ($scope, $http) ->
-  $scope.$watch "search_name", ()->
-    $http.get "/events/search.json?name=" + ($scope.search_name || "")
+  $scope.$watch "event", ()->
+    $http({
+      url: "/events/search.json",
+      method: "GET",
+      params: $scope.event
+    })
     .then (response) ->
       $scope.events = response.data
+  , true # on $watch to enable object support

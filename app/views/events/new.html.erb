@@ -1,4 +1,5 @@
-<% @title = t :adding_event %>
-<h2><%= t :adding_event %></h2>
-<%= render 'form' %>
+<h2><%= @title = t :adding_event %></h2>
+
 <%= link_to t(:back), events_path %>
+
+<%= render 'form' %>

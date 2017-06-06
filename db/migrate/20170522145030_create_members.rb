@@ -10,6 +10,7 @@ class CreateMembers < ActiveRecord::Migration[5.1]
       t.string :city
       t.integer :school_id
       t.string :work
+      t.string :email
       t.integer :phone, :limit => 6
       t.integer :fathers_phone, :limit => 6
       t.integer :mothers_phone, :limit => 6

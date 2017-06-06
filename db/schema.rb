@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20170522151713) do
     t.boolean "active", default: true
     t.string "name"
     t.text "description"
-    t.date "datatime"
+    t.datetime "datetime"
     t.integer "event_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20170522151713) do
     t.boolean "active", default: true
     t.string "name"
     t.text "description"
+    t.time "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -68,7 +69,7 @@ ActiveRecord::Schema.define(version: 20170522151713) do
     t.integer "taking_member_id"
     t.integer "lesson_subject_id"
     t.time "time"
-    t.datetime "date_time"
+    t.datetime "datetime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -83,6 +84,7 @@ ActiveRecord::Schema.define(version: 20170522151713) do
     t.string "city"
     t.integer "school_id"
     t.string "work"
+    t.string "email"
     t.integer "phone", limit: 6
     t.integer "fathers_phone", limit: 6
     t.integer "mothers_phone", limit: 6

@@ -25,6 +25,10 @@
     <%= f.collection_select :event_category_id, EventCategory.active, :id, :name %>
   </p>
   <p>
+    <%= f.label :datetime %><br>
+    <%= f.datetime_local_field :datetime %>
+  </p>
+  <p>
     <%= f.submit %>
   </p>
 <% end %>
