@@ -1,5 +1,4 @@
-<% @title = t :schools_list %>
-<h1><%= t :schools_list %></h1>
+<h1><%= @title = t :schools_list %></h1>
 
 <%= link_to t(:adding_school), new_school_path %>
 <%= link_to t(:disabled_schools), controller: "schools", action: "disabled" %>

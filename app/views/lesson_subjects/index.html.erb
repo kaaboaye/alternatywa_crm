@@ -1,2 +1,30 @@
-<h1>LessonSubjects#index</h1>
-<p>Find me in app/views/lesson_subjects/index.html.erb</p>
+<h1><%= @title = t :lesson_subjects_list %></h1>
+
+<%= link_to t(:adding_lesson_subject), new_lesson_subject_path %>
+<%= link_to t(:disabled_lesson_subjects), controller: "lesson_subjects", action: "disabled" %>
+
+<div ng-controller="LessonSubjectCtrl">
+
+  <h3><%= t :searching %></h3>
+  <div class="well search-block">
+    <input type="text" ng-model="name"
+      placeholder="<%= t "activerecord.attributes.lesson_subject.name" %>" />
+  </div>
+
+  <table class="table-list table-bordered table-striped">
+    <thead>
+      <tr>
+        <th><%= t "activerecord.attributes.lesson_subject.name" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="ls in lesson_subjects">
+        <td>{{ ls.name }}</td>
+        <td><%= link_to t(:edit), URI::unescape(edit_lesson_subject_path("{{ ls.id }}")) %></td>
+        <td><%= link_to t(:destroy), URI::unescape(lesson_subject_path("{{ ls.id }}")),
+                method: :delete,
+                data: { confirm: t(:are_you_sure) } %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -73,6 +73,7 @@ pl:
   lesson_subjects_list: Lista tematów korepetycji
   adding_lesson_subject: Dodawanie tematu korepetycji
   disabled_lesson_subjects: Ukryte tematy korepetycji
+  edit_lesson_subject: Edytuj temat lekcji
 
   activerecord:
     models:
@@ -81,6 +82,8 @@ pl:
       group: Grupa
       event_category: Kategoria wydarzeń
       event: Wydarzenie
+      lesson: Spotkanie
+      lesson_subject: Temat spotkania
     attributes:
       school:
         name: Nazwa
@@ -115,6 +118,9 @@ pl:
         taking_member_id: Pobierający
         lesson_subject_id: Temat
         datetime: Data
+        time: Czas
+      lesson_subject:
+        name: Nazwa
     errors:
       messages:
         record_invalid: 'Negatywne sprawdzenie poprawności: %{errors}'
@@ -307,6 +313,12 @@ pl:
       event:
         create: Dodaj wydarzenie
         update: Zaktualizuj wydarzenie
+      lesson:
+        create: Dodaj spotkanie
+        update: Zaktualizuj spotkanie
+      lesson_subject:
+        create: Dodaj kategorię spotkań
+        update: Zaktualizuj kategorię spotkań
   number:
     currency:
       format:

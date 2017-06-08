@@ -50,9 +50,35 @@ class LessonsController < ApplicationController
     render json: json
   end
 
+  def create
+    lesson = Lesson.new lesson_params
+
+    if lesson.save
+      render json: {success: true}
+    else
+      render json: {
+        success: false,
+        errors: lesson.errors.full_messages
+        }
+    end
+  end
+
+  def show
+    @lesson = Lesson.find_by_id(params[:id])
+    if @lesson.nil?
+      render 'index'
+    end
+  end
+
   def edit
   end
 
   def disabled
+  end
+
+private
+  def lesson_params
+    params.permit :giving_member_id, :taking_member_id, :lesson_subject_id,
+      :time, :city, :datetime
   end
 end

@@ -1,0 +1,15 @@
+<h1><%= @title = t :disabled_lesson_subjects %></h1>
+
+<%= link_to t(:lesson_subjects_list), lesson_subjects_path %>
+<table class="table-list table-bordered table-striped">
+  <tr>
+    <th><%= t "activerecord.attributes.lesson_subject.name" %></th>
+  </tr>
+
+  <% @lesson_subjects.each do |lesson_subject| %>
+    <tr>
+      <td><%= lesson_subject.name %></td>
+      <td><%= link_to t(:restore), lesson_subject_restore_path(lesson_subject) %></td>
+    </tr>
+  <% end %>
+</table>

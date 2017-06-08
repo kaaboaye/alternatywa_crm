@@ -1,3 +1,10 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+@app.controller "LessonSubjectCtrl", ($scope, $http) ->
+  $scope.$watch "name", ()->
+    $http({
+      url: "/lessons/subjects/search.json",
+      method: "GET",
+      params: {name: $scope.name}
+    })
+    .then (response) ->
+      $scope.lesson_subjects = response.data
+  , true # on $watch to enable object support

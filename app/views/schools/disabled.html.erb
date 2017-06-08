@@ -1,7 +1,7 @@
-<h1><%= t :disabled_schools %></h1>
+<h1><%= @title = t :disabled_schools %></h1>
 
 <%= link_to t(:schools_list), schools_path %>
-<table>
+<table class="table-list table-bordered table-striped">
   <tr>
     <th><%= t "activerecord.attributes.school.name" %></th>
   </tr>

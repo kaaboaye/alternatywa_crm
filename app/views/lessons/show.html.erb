@@ -1,2 +1,31 @@
-<h1>Lessons#show</h1>
-<p>Find me in app/views/lessons/show.html.erb</p>
+<h2><%= @title = t "activerecord.models.lesson" %></h2>
+
+<%= link_to t(:back), lessons_path %>
+<%= link_to t(:adding_lesson), new_lesson_path %>
+
+<p>
+    <%= t "activerecord.attributes.lesson.giving_member_id" %>:
+    <%= @lesson.giving_member.first_name %>
+    <%= @lesson.giving_member.last_name %>
+    <%= @lesson.giving_member.phone %>
+    <%= link_to t(:show), member_path(@lesson.giving_member) %>
+</p>
+<p>
+    <%= t "activerecord.attributes.lesson.taking_member_id" %>:
+    <%= @lesson.taking_member.first_name %>
+    <%= @lesson.taking_member.last_name %>
+    <%= @lesson.taking_member.phone %>
+    <%= link_to t(:show), member_path(@lesson.taking_member) %>
+</p>
+<p>
+    <%= t "activerecord.attributes.lesson.lesson_subject_id" %>:
+    <%= @lesson.lesson_subject.name %>
+</p>
+<p>
+    <%= t "activerecord.attributes.lesson.datetime" %>:
+    <%= @lesson.datetime %>
+</p>
+<p>
+    <%= t "activerecord.attributes.lesson.time" %>:
+    <%= @lesson.time %>
+</p>
