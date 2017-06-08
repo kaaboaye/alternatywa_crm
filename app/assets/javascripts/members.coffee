@@ -1,4 +1,4 @@
-@app.controller "MembersCtrl", ($scope, $http) ->
+@app.controller "MembersCtrl", ["$scope", "$http", ($scope, $http) ->
   $scope.$watch "member", ()->
     $http({
       url: "/members/search.json",
@@ -7,4 +7,5 @@
     })
     .then (response) ->
       $scope.members = response.data
-  , true # on $watch to enable object support
+  , true
+]

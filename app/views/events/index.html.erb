@@ -7,17 +7,19 @@
 <div ng-controller="EventsCtrl">
   <h3><%= t :searching %></h3>
   <div class="well search-block">
-    <input type="text" ng-model="event.name"
-      placeholder="<%= t "activerecord.attributes.event.name" %>" />
-      <p>
-        <label><%= t "activerecord.attributes.event.event_category_id" %></label>
-        <select ng-model="event.event_category_id">
-          <option value=""><%= t "helpers.select.prompt" %></option>
-          <% EventCategory.active.each do |c| %>
-          <option value="<%= c.id %>"><%= c.name %></option>
-          <% end %>
-        </select>
-      </p>
+    <div class="inline-block">
+      <input type="text" ng-model="event.name"
+        placeholder="<%= t "activerecord.attributes.event.name" %>" />
+    </div>
+    <div class="inline-block">
+      <label><%= t "activerecord.attributes.event.event_category_id" %></label>
+      <select ng-model="event.event_category_id">
+        <option value=""><%= t "helpers.select.prompt" %></option>
+        <% EventCategory.active.each do |c| %>
+        <option value="<%= c.id %>"><%= c.name %></option>
+        <% end %>
+      </select>
+    </div>
   </div>
 
   <table class="table-list table-bordered table-striped">

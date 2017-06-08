@@ -4,23 +4,24 @@ class MembersController < ApplicationController
 
   def search
     if params.key? :id
-      @members = Member.active.where id: params[:id]
+      members = Member.active.where id: params[:id]
     elsif ( params[:first_name].present? ||
         params[:last_name].present? ||
         params[:pesel].present? ||
         params[:city].present? ||
         params[:phone].present?)
-      @members = Member.active
+      members = Member.active
         .where("first_name LIKE ?", "%#{params[:first_name]}%")
         .where("last_name LIKE ?", "%#{params[:last_name]}%")
         .where("pesel LIKE ?", "%#{params[:pesel]}%")
         .where("city LIKE ?", "%#{params[:city]}%")
         .where("phone LIKE ?", "%#{params[:phone]}%")
+        .limit(25)
     else
-      @members = Member.active
+      members = []
     end
 
-    render json: @members
+    render json: members
   end
 
   def new

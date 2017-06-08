@@ -3,7 +3,7 @@ datatime = new Date datatime.getFullYear(), datatime.getMonth(), datatime.getDat
 
 convert_date = @convert_date
 
-@app.controller "EventPresenceCtrl", ($scope, $http) ->
+@app.controller "EventPresenceCtrl", ["$scope", "$http", ($scope, $http) ->
   $scope.added_members = []
   $scope.time = new Date 2000, 1, 1, 2, 0
 
@@ -72,3 +72,4 @@ convert_date = @convert_date
     .then (response) ->
       update_added()
   # end
+]

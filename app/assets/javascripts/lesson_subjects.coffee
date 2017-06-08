@@ -1,4 +1,4 @@
-@app.controller "LessonSubjectCtrl", ($scope, $http) ->
+@app.controller "LessonSubjectCtrl",  ["$scope", "$http", ($scope, $http) ->
   $scope.$watch "name", ()->
     $http({
       url: "/lessons/subjects/search.json",
@@ -8,3 +8,4 @@
     .then (response) ->
       $scope.lesson_subjects = response.data
   , true # on $watch to enable object support
+]

@@ -1,6 +1,6 @@
 pl:
   project_name: Alternatywa
-#  main_page: Strona główna
+  main_page: Strona główna
   name: Nazwa
   show: Pokaż
   error:

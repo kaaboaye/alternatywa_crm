@@ -3,7 +3,7 @@ convert_date = @convert_date
 date = new Date()
 date = new Date date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes()
 
-@app.controller "LessonsIndexCtrl", ($scope, $http) ->
+@app.controller "LessonsIndexCtrl",  ["$scope", "$http", ($scope, $http) ->
   $scope.since = new Date(Date.parse(date) - 30 * 24 * 60 * 60 * 1000)
   $scope.finish = date
 
@@ -34,3 +34,4 @@ date = new Date date.getFullYear(), date.getMonth(), date.getDate(), date.getHou
 
       $scope.lessons = response.data
   , true # on $watch to enable object support
+]

@@ -3,7 +3,7 @@ datatime = new Date datatime.getFullYear(), datatime.getMonth(), datatime.getDat
 
 convert_date = @convert_date
 
-@app.controller "GroupPresenceCtrl", ($scope, $http) ->
+@app.controller "GroupPresenceCtrl",  ["$scope", "$http", ($scope, $http) ->
   $scope.hard_date = false
   $scope.datetime = datatime
   $scope.added_members = []
@@ -72,3 +72,4 @@ convert_date = @convert_date
     .then (response) ->
       update_added()
   # end
+]

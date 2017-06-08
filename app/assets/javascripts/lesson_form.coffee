@@ -1,6 +1,6 @@
 convert_date = @convert_date
 
-@app.controller "LessonFormCtrl", ($scope, $http) ->
+@app.controller "LessonFormCtrl",  ["$scope", "$http", ($scope, $http) ->
   $scope.setup = () ->
     datatime = new Date()
     datatime = new Date datatime.getFullYear(), datatime.getMonth(), datatime.getDate(), datatime.getHours(), datatime.getMinutes()
@@ -58,3 +58,4 @@ convert_date = @convert_date
         alert "Błąd: " + response.status
     else
       alert "Nie uzupełniono całego formularza"
+]
