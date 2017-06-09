@@ -1,5 +1,10 @@
 <% @title = "#{@member.first_name} #{@member.last_name}" %>
 <h2><%= t "activerecord.models.member" %></h2>
+
+<%= link_to t(:back), members_path %>
+<%= link_to t(:add_member), new_member_path %>
+<%= link_to t(:edit_member), edit_member_path(@member) %>
+
 <p>
     <%= t "activerecord.attributes.member.first_name" %>:
     <%= @member.first_name %>
@@ -33,6 +38,10 @@
     <%= @member.work %>
 </p>
 <p>
+    <%= t "activerecord.attributes.member.email" %>:
+    <%= @member.email %>
+</p>
+<p>
     <%= t "activerecord.attributes.member.phone" %>:
     <%= @member.phone %>
 </p>
@@ -44,6 +53,3 @@
     <%= t "activerecord.attributes.member.mothers_phone" %>:
     <%= @member.mothers_phone %>
 </p>
-
-<%= link_to t(:back), members_path %>
-<%= link_to t(:add_member), new_member_path %>

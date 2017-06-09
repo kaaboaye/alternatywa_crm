@@ -1,9 +1,58 @@
-<h1><%= t :main_page %></h1>
-
-<ul>
-  <li><%= link_to t(:schools), schools_path %></li>
-  <li><%= link_to t(:members), members_path %></li>
-  <li><%= link_to t(:groups), groups_path %></li>
-  <li><%= link_to t(:event_categories), event_categories_path %></li>
-  <li><%= link_to t(:events), events_path %></li>
-</ul>
+<div class="home">
+  <div class="well">
+    <h2><%= t :members %></h1>
+      <div>
+        <%= link_to members_path do %><%= image_tag "members.png" %><% end %>
+        <%= link_to members_path do %><%= t :members_list %><% end %>
+      </div>
+      <div>
+        <%= link_to new_member_path do %><%= image_tag "new_member.png" %><% end %>
+        <%= link_to new_member_path do %><%= t :add_member %><% end %>
+      </div>
+      <div>
+        <%= link_to schools_path do %><%= image_tag "schools.png" %><% end %>
+        <%= link_to schools_path do %><%= t :schools_list %><% end %>
+      </div>
+  </div>
+  <div class="well">
+    <h2><%= t :groups %></h1>
+      <div>
+        <%= link_to groups_path do %><%= image_tag "groups.png" %><% end %>
+        <%= link_to groups_path do %><%= t :groups_list %><% end %>
+      </div>
+      <div>
+        <%= link_to new_group_path do %><%= image_tag "new_group.png" %><% end %>
+        <%= link_to new_group_path do %><%= t :add_group %><% end %>
+      </div>
+  </div>
+  <div class="well">
+    <h2><%= t :events %></h1>
+      <div>
+        <%= link_to events_path do %><%= image_tag "events.png" %><% end %>
+        <%= link_to events_path do %><%= t :events_list %><% end %>
+      </div>
+      <div>
+        <%= link_to new_event_path do %><%= image_tag "new_event.png" %><% end %>
+        <%= link_to new_event_path do %><%= t :add_event %><% end %>
+      </div>
+      <div>
+        <%= link_to event_categories_path do %><%= image_tag "event_categories.png" %><% end %>
+        <%= link_to event_categories_path do %><%= t :event_categories %><% end %>
+      </div>
+  </div>
+  <div class="well">
+    <h2><%= t :lessons %></h1>
+      <div>
+        <%= link_to lessons_path do %><%= image_tag "lessons.png" %><% end %>
+        <%= link_to lessons_path do %><%= t :lessons_list %><% end %>
+      </div>
+      <div>
+        <%= link_to new_lesson_path do %><%= image_tag "new_lesson.png" %><% end %>
+        <%= link_to new_lesson_path do %><%= t :add_lesson %><% end %>
+      </div>
+      <div>
+        <%= link_to lesson_subjects_path do %><%= image_tag "lesson_categories.png" %><% end %>
+        <%= link_to lesson_subjects_path do %><%= t :lesson_subjects %><% end %>
+      </div>
+  </div>
+</div>

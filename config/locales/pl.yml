@@ -68,10 +68,12 @@ pl:
   lessons: Korepetycje
   lessons_list: Lista korepetycji
   adding_lesson: Dodawanie spotkania
+  add_lesson: Dodaj spotkanie
 
   lesson_subjects: Tematy korepetycji
   lesson_subjects_list: Lista tematów korepetycji
   adding_lesson_subject: Dodawanie tematu korepetycji
+  add_lesson_category: Dodaj temat spotkań
   disabled_lesson_subjects: Ukryte tematy korepetycji
   edit_lesson_subject: Edytuj temat lekcji
 
@@ -96,6 +98,7 @@ pl:
         city: Miasto
         school_id: Szkoła
         work: Praca
+        email: Email
         phone: Numer telefonu
         fathers_phone: Numer telefonu ojca
         mothers_phone: Numer telefonu matki
