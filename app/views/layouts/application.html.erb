@@ -65,6 +65,12 @@
               <li><%= link_to t(:adding_lesson_subject), controller: "lesson_subjects", action: "new" %></li>
               <li><%= link_to t(:disabled_lesson_subjects), controller: "lesson_subjects", action: "disabled" %></li>
             <%= raw dropdown_end %>
+
+            <%= raw dropdown_begin t :consultations %>
+              <li><%= link_to t(:consultations_list), consultations_path %></li>
+              <li><%= link_to t(:adding_consultation), new_consultation_path %></li>
+              <li><%= link_to t(:disabled_consultations), controller: "consultations", action: "disabled" %></li>
+            <%= raw dropdown_end %>
           </ul>
         </div>
       </div>

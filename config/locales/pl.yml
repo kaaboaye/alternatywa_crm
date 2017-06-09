@@ -19,6 +19,7 @@ pl:
   _timestamp: Czas
   since: Od
   pending: Do
+  select: Wybierz
 
   schools: Szkoły
   adding_school: Dodawanie szkoły
@@ -77,6 +78,11 @@ pl:
   disabled_lesson_subjects: Ukryte tematy korepetycji
   edit_lesson_subject: Edytuj temat lekcji
 
+  consultations: Konsultacje
+  consultations_list: Lista konsultacji
+  adding_consultation: Dodawanie konsultacji
+  disabled_consultations: Ukryte konsultacje
+
   activerecord:
     models:
       school: Szkoła
@@ -124,6 +130,10 @@ pl:
         time: Czas
       lesson_subject:
         name: Nazwa
+      consultation:
+        member_id: Osoba
+        datetime: Data
+        description: Opis
     errors:
       messages:
         record_invalid: 'Negatywne sprawdzenie poprawności: %{errors}'

@@ -55,4 +55,15 @@
         <%= link_to lesson_subjects_path do %><%= t :lesson_subjects %><% end %>
       </div>
   </div>
+  <div class="well">
+    <h2><%= t :consultations %></h1>
+      <div>
+        <%= link_to consultations_path do %><%= image_tag "consultations.png" %><% end %>
+        <%= link_to consultations_path do %><%= t :consultations_list %><% end %>
+      </div>
+      <div>
+        <%= link_to new_lesson_path do %><%= image_tag "new_consultation.png" %><% end %>
+        <%= link_to new_consultation_path do %><%= t :adding_consultation %><% end %>
+      </div>
+  </div>
 </div>

@@ -1,12 +1,10 @@
-@app.controller "LessonFormCtrl",  ["$scope", "$http", ($scope, $http) ->
+@app.controller "ConsultationsFormCtrl",  ["$scope", "$http", ($scope, $http) ->
   $scope.setup = () ->
     datatime = new Date()
-    datatime = new Date datatime.getFullYear(), datatime.getMonth(), datatime.getDate(), datatime.getHours(), datatime.getMinutes()
+    datatime = new Date datatime.getFullYear(), datatime.getMonth(),
+      datatime.getDate(), datatime.getHours(), datatime.getMinutes()
 
-    $scope.giving_member = {}
     $scope.taking_member = {}
-    $scope.lesson_subject_id = ""
-    $scope.time = new Date 2000, 1, 1, 0, 45
     $scope.datetime = datatime
 
   $scope.$watch "member", ()->
@@ -19,29 +17,22 @@
       $scope.members = response.data
   , true # on $watch to enable object support
 
-  $scope.set_giving_member = (member) ->
-    $scope.giving_member = member
-
   $scope.set_taking_member = (member) ->
     $scope.taking_member = member
 
   $scope.create = (member) ->
-    ok = (!!$scope.giving_member.id &&
-          !!$scope.taking_member.id &&
-          !!$scope.lesson_subject_id &&
-          !!$scope.time &&
-          !!$scope.datetime)
+    ok = (!!$scope.taking_member.id &&
+          !!$scope.datetime &&
+          !!$scope.description)
 
     if ok
       $http({
-        url: "/lessons.json",
+        url: "/consultations.json",
         method: "POST",
         params: {
           authenticity_token: $("meta[name='csrf-token']").attr('content'),
-          giving_member_id: $scope.giving_member.id,
-          taking_member_id: $scope.taking_member.id,
-          lesson_subject_id: $scope.lesson_subject_id,
-          time: $scope.time,
+          member_id: $scope.taking_member.id,
+          description: $scope.description,
           datetime: $scope.datetime
         }
       })

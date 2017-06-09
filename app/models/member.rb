@@ -7,6 +7,7 @@ class Member < ApplicationRecord
   has_many :taking_lessons,
     class_name: 'Lesson',
     foreign_key: 'taking_member_id'
+  has_many :consultations
 
   belongs_to :school
 

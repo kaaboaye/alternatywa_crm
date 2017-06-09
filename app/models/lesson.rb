@@ -10,4 +10,9 @@ class Lesson < ApplicationRecord
   validates_associated :giving_member
   validates_associated :taking_member
   validates_associated :lesson_subject
+  
+  validates :time,
+    presence: true
+  validates :datetime,
+    presence: true
 end

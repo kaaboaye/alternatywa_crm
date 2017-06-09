@@ -17,6 +17,7 @@ class LessonsController < ApplicationController
         .includes(:giving_member, :taking_member, :lesson_subject)
         .where(:datetime => since..finish)
         .where(lesson_subject_id: params[:lesson_subject_id])
+        .order(datetime: :desc)
     elsif params[:since].present? && params[:finish].present?
       since = Time.at params[:since].to_i
       finish = Time.at params[:finish].to_i
@@ -24,6 +25,7 @@ class LessonsController < ApplicationController
       lessons = Lesson.active
         .includes(:giving_member, :taking_member, :lesson_subject)
         .where(:datetime => since..finish)
+        .order(datetime: :desc)
     else
       lessons = []
     end

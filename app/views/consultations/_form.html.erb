@@ -1,0 +1,55 @@
+<div class="form" ng-controller="ConsultationsFormCtrl" ng-init="setup()">
+  <p>
+    <label><%= t "activerecord.attributes.consultation.member_id" %></label>
+    <input type="text" ng-model="taking_member.first_name" readonly
+      placeholder="<%= t "activerecord.attributes.member.first_name" %>" />
+    <input type="text" ng-model="taking_member.last_name" readonly
+      placeholder="<%= t "activerecord.attributes.member.last_name" %>" />
+    <input type="text" ng-model="taking_member.phone" readonly
+      placeholder="<%= t "activerecord.attributes.member.phone" %>" />
+  </p>
+  <p>
+    <label><%= t "activerecord.attributes.consultation.datetime" %></label>
+    <input type="datetime-local" ng-model="datetime" />
+  </p>
+  <p>
+    <label><%= t "activerecord.attributes.consultation.description" %></label>
+    <textarea ng-model="description"></textarea>
+  </p>
+  <p>
+    <input type="button" ng-click="create()"
+      value="<%= t "helpers.submit.lesson.create" %>" />
+  </p>
+
+  <div class="well search-block">
+    <input type="text" ng-model="member.first_name"
+    placeholder="<%= t "activerecord.attributes.member.first_name" %>" />
+    <input type="text" ng-model="member.last_name"
+      placeholder="<%= t "activerecord.attributes.member.last_name" %>" />
+    <input type="text" ng-model="member.phone"
+      placeholder="<%= t "activerecord.attributes.member.phone" %>" />
+
+    <table class="table-list table-bordered table-striped">
+      <thead>
+        <tr>
+          <th><%= t "activerecord.attributes.member.first_name" %></th>
+          <th><%= t "activerecord.attributes.member.last_name" %></th>
+          <th><%= t "activerecord.attributes.member.phone" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="member in members">
+          <td>{{ member.first_name }}</td>
+          <td>{{ member.last_name }}</td>
+          <td>{{ member.phone }}</td>
+          <td><%= link_to t(:show), URI::unescape(member_path("{{ member.id }}")) %></td>
+          <td>
+            <a href="javascript:void(0)" ng-click="set_taking_member(member)" >
+              <%= t :select %>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
