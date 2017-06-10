@@ -336,6 +336,9 @@ pl:
       lesson_subject:
         create: Dodaj kategorię spotkań
         update: Zaktualizuj kategorię spotkań
+      consultation:
+        create: Dodaj konsultacje
+        update: Zaktualizuj konsultacje
   number:
     currency:
       format:

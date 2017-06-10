@@ -54,7 +54,7 @@
         </td>
         <td><%= link_to t(:show), URI::unescape(lesson_path("{{ l.id }}")) %></td>
         <td><%= link_to t(:edit), URI::unescape(edit_lesson_path("{{ l.id }}")) %></td>
-        <td><%= link_to t(:destroy), URI::unescape(group_path("{{ l.id }}")),
+        <td><%= link_to t(:destroy), URI::unescape(lesson_path("{{ l.id }}")),
                 method: :delete,
                 data: { confirm: t(:are_you_sure) } %></td>
       </tr>
