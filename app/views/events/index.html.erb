@@ -27,12 +27,14 @@
       <tr>
         <th><%= t "activerecord.attributes.event.name" %></th>
         <th><%= t "activerecord.attributes.event.event_category_id" %></th>
+        <th><%= t "activerecord.attributes.event.datetime" %></th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="event in events">
         <td>{{ event.name }}</td>
         <td>{{ event.category }}</td>
+        <td><datetime value="{{ event.datetime }}" /></td>
         <td><%= link_to t(:show), URI::unescape(event_path("{{ event.id }}")) %></td>
         <td><%= link_to t(:edit), URI::unescape(edit_event_path("{{ event.id }}")) %></td>
         <td><%= link_to t(:presences_list), URI::unescape(event_presence_path("{{ event.id }}")) %></td>

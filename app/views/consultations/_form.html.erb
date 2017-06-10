@@ -1,4 +1,10 @@
-<div class="form" ng-controller="ConsultationsFormCtrl" ng-init="setup()">
+<div class="form" ng-controller="ConsultationsFormCtrl"
+  <% if @consultation.new_record? %>
+    ng-init="setup()"
+  <% else %>
+    ng-init='set_data(<%= raw @public_consultation.to_json %>)'
+  <% end %>
+  >
   <p>
     <label><%= t "activerecord.attributes.consultation.member_id" %></label>
     <input type="text" ng-model="taking_member.first_name" readonly
@@ -17,8 +23,13 @@
     <textarea ng-model="description"></textarea>
   </p>
   <p>
-    <input type="button" ng-click="create()"
-      value="<%= t "helpers.submit.lesson.create" %>" />
+    <% if @consultation.new_record? %>
+      <input type="button" ng-click="create()"
+        value="<%= t "helpers.submit.consultation.create" %>" />
+    <% else %>
+      <input type="button" ng-click="update()"
+        value="<%= t "helpers.submit.consultation.update" %>" />
+    <% end %>
   </p>
 
   <div class="well search-block">

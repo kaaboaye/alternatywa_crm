@@ -31,6 +31,11 @@ div.search-block {
   display: inline-block;
 }
 
+textarea {
+  width: 40%;
+  height: 400px;
+}
+
 input[type="number"]::-webkit-inner-spin-button {
     /* display: none; <- Crashes Chrome on hover */
     -webkit-appearance: none;

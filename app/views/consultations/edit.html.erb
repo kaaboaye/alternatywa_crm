@@ -1,2 +1,4 @@
-<h1>Consultations#edit</h1>
-<p>Find me in app/views/consultations/edit.html.erb</p>
+<h2><%= @title = t :edit_consultation %></h2>
+<%= link_to t(:back), consultations_path %>
+<%= link_to t(:show), consultation_path(@consultation) %>
+<%= render 'form' %>

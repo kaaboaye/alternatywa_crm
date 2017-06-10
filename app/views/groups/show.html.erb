@@ -12,10 +12,10 @@
 </p>
 <p>
     <%= t "activerecord.attributes.group.description" %>:
-    <%= @group.description %>
+    <pre><%= @group.description %></pre>
 </p>
 
-<div ng-controller="GroupsPresencesListCtrl">
+<div ng-controller="GroupsShowCtrl">
   <h2><%= t :presences_lists %></h2>
   <input type="hidden" ng-init="group_id=<%= @group.id %>" />
   <div class="alert alert-danger" ng-repeat="error in errors">
@@ -29,7 +29,9 @@
   </div>
   <ul>
     <li ng-repeat="list in lists">
-      <a href="<%= params[:id] %>/presence/{{ list.id }}">{{ list.name }}</a>
+      <a href="<%= params[:id] %>/presence/{{ list.id }}">
+        <datetime value="{{ list.datetime }}" />
+      </a>
     </li>
   </ul>
 </div>

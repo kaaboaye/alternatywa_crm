@@ -1,2 +1,21 @@
-<h1>Consultations#show</h1>
-<p>Find me in app/views/consultations/show.html.erb</p>
+<h2><%= @title = t "activerecord.models.consultation" %></h2>
+
+<%= link_to t(:back), consultations_path %>
+<%= link_to t(:adding_consultation), new_consultation_path %>
+<%= link_to t(:edit_consultation), edit_consultation_path(@consultation) %>
+
+<p>
+    <%= t "activerecord.attributes.consultation.member_id" %>:
+    <%= @consultation.member.first_name %>
+    <%= @consultation.member.last_name %>
+    <%= @consultation.member.phone %>
+    <%= link_to t(:show), member_path(@consultation.member) %>
+</p>
+<p>
+    <%= t "activerecord.attributes.consultation.datetime" %>:
+    <datetime value="<%= @consultation.datetime %>" />
+</p>
+<p>
+    <%= t "activerecord.attributes.consultation.description" %>:
+    <pre><%= @consultation.description %></pre>
+</p>

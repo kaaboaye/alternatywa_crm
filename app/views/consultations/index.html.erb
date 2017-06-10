@@ -1,2 +1,44 @@
-<h1>Consultations#index</h1>
-<p>Find me in app/views/consultations/index.html.erb</p>
+<h1><%= @title = t :consultations_list %></h1>
+
+<%= link_to t(:adding_consultation), new_consultation_path %>
+
+<div ng-controller="ConsultationsIndexCtrl">
+
+  <h3><%= t :searching %></h3>
+  <div class="well search-block">
+    <div class="inline-block">
+      <label><%= t :since %></label>
+      <input type="datetime-local" ng-model="since" />
+    </div>
+    <div class="inline-block">
+      <label><%= t :pending %></label>
+      <input type="datetime-local" ng-model="finish" />
+    </div>
+  </div>
+
+  <table class="table-list table-bordered table-striped">
+    <thead>
+      <tr>
+        <th><%= t "activerecord.attributes.consultation.member_id" %></th>
+        <th><%= t "activerecord.attributes.consultation.datetime" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="c in consultations">
+        <td>
+          {{ c.member.first_name }}
+          {{ c.member.last_name }}
+          {{ c.member.phone }}
+        </td>
+        <td>
+          <datetime value="{{ c.datetime }}" />
+        </td>
+        <td><%= link_to t(:show), URI::unescape(consultation_path("{{ c.id }}")) %></td>
+        <td><%= link_to t(:edit), URI::unescape(edit_consultation_path("{{ c.id }}")) %></td>
+        <td><%= link_to t(:destroy), URI::unescape(consultation_path("{{ c.id }}")),
+                method: :delete,
+                data: { confirm: t(:are_you_sure) } %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

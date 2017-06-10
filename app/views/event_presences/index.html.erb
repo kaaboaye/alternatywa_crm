@@ -1,6 +1,6 @@
 <h1><%= @title = t :presences_list %></h1>
 <h4><%= t "activerecord.models.event" %>: <%= @event.name %></h4>
-<h4><%= t :_date %>: <%= @event.datetime %></h4>
+<h4><%= t :_date %>: <datetime value="<%= @event.datetime %>" /></h4>
 
 <%= link_to t(:back), events_path %>
 <%= link_to t(:show_event), event_path(@event) %>
@@ -25,11 +25,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-click="add(member)" ng-repeat="member in members">
+        <tr ng-repeat="member in members">
           <td>{{ member.first_name }}</td>
           <td>{{ member.last_name }}</td>
           <td>{{ member.phone }}</td>
           <td><%= link_to t(:show), URI::unescape(member_path("{{ member.id }}")) %></td>
+          <td><a href="javascript:void(0)" ng-click="add(member)" ><%= t :add %></a></td>
         </tr>
       </tbody>
     </table>

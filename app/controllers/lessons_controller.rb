@@ -3,6 +3,7 @@ class LessonsController < ApplicationController
   end
 
   def new
+    @lesson = Lesson.new
   end
 
   def search
@@ -73,14 +74,50 @@ class LessonsController < ApplicationController
   end
 
   def edit
+    @lesson = Lesson.find_or_create_by id: params[:id]
+
+    lesson_subjects = LessonSubject.active.select(:id, :name)
+
+    @public_lesson = {
+      id: @lesson.id,
+      giving_member: {
+        id: @lesson.giving_member.id,
+        first_name: @lesson.giving_member.first_name,
+        last_name: @lesson.giving_member.last_name,
+        phone: @lesson.giving_member.phone
+      },
+      taking_member: {
+        id: @lesson.taking_member.id,
+        first_name: @lesson.taking_member.first_name,
+        last_name: @lesson.taking_member.last_name,
+        phone: @lesson.taking_member.phone
+      },
+      lesson_subjects: lesson_subjects,
+      lesson_subject: {
+        id: @lesson.lesson_subject.id,
+        name: @lesson.lesson_subject.name
+      },
+      time: @lesson.time,
+      datetime: @lesson.datetime
+    }
   end
 
-  def disabled
+  def update
+    @lesson = Lesson.find params[:id]
+
+    if @lesson.update lesson_params
+      render json: {success: true}
+    else
+      render json: {
+        success: false,
+        errors: @lesson.errors.full_messages
+        }
+    end
   end
 
 private
   def lesson_params
     params.permit :giving_member_id, :taking_member_id, :lesson_subject_id,
-      :time, :city, :datetime
+      :time, :datetime
   end
 end

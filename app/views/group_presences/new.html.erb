@@ -4,7 +4,7 @@
   @date = Time.at params[:list_id].to_f
   @date.to_formatted_s :long
   %>
-  <h4><%= t :_date %>: <%= @date %></h4>
+  <h4><%= t :_date %>: <datetime value="<%= @date %>" /></h4>
 <% end %>
 
 <%= link_to t(:back), groups_path %>
@@ -43,11 +43,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-click="add(member)" ng-repeat="member in members">
+        <tr ng-repeat="member in members">
           <td>{{ member.first_name }}</td>
           <td>{{ member.last_name }}</td>
           <td>{{ member.phone }}</td>
           <td><%= link_to t(:show), URI::unescape(member_path("{{ member.id }}")) %></td>
+          <td>
+            <a href="javascript:void(0)" ng-click="add(member)" >
+              <%= t :add %>
+            </a>
+          </td>
         </tr>
       </tbody>
     </table>

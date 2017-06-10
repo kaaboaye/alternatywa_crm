@@ -6,28 +6,28 @@ class EventsController < ApplicationController
     if params[:id].present?
       events = Event.active
         .includes(:event_category)
-        .select(:id, :name, :event_category_id)
+        .select(:id, :name, :event_category_id, :datetime)
         .where(id: params[:id])
     elsif params[:name].present? && params[:event_category_id].present?
       events = Event.active
         .includes(:event_category)
-        .select(:id, :name, :event_category_id)
+        .select(:id, :name, :event_category_id, :datetime)
         .where("name LIKE ?", "%#{params[:name]}%")
         .where(event_category_id: params[:event_category_id])
     elsif params[:name].present?
       events = Event.active
         .includes(:event_category)
-        .select(:id, :name, :event_category_id)
+        .select(:id, :name, :event_category_id, :datetime)
         .where("name LIKE ?", "%#{params[:name]}%")
     elsif params[:event_category_id].present?
       events = Event.active
         .includes(:event_category)
-        .select(:id, :name, :event_category_id)
+        .select(:id, :name, :event_category_id, :datetime)
         .where(event_category_id: params[:event_category_id])
     else
       events = Event.active
         .includes(:event_category)
-        .select(:id, :name, :event_category_id)
+        .select(:id, :name, :event_category_id, :datetime)
     end
 
     json_enevts = []
@@ -35,7 +35,8 @@ class EventsController < ApplicationController
       json_enevts.push(
         id: event.id,
         name: event.name,
-        category: event.event_category.name
+        category: event.event_category.name,
+        datetime: event.datetime
       )
     end
 

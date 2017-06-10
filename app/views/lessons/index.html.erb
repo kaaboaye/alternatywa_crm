@@ -50,7 +50,7 @@
           {{ l.lesson_subject }}
         </td>
         <td>
-          {{ l.datetime }}
+          <datetime value="{{ l.datetime }}" />
         </td>
         <td><%= link_to t(:show), URI::unescape(lesson_path("{{ l.id }}")) %></td>
         <td><%= link_to t(:edit), URI::unescape(edit_lesson_path("{{ l.id }}")) %></td>

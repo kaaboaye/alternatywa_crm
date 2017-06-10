@@ -3,7 +3,7 @@ date = new Date date.getFullYear(), date.getMonth(), date.getDate(), date.getHou
 
 convert_date = @convert_date
 
-@app.controller "GroupsPresencesListCtrl", ["$scope", "$http", ($scope, $http) ->
+@app.controller "GroupsShowCtrl", ["$scope", "$http", ($scope, $http) ->
   $scope.since = new Date(Date.parse(date) - 30 * 24 * 60 * 60 * 1000)
   $scope.finish = date
   $scope.lists = []
@@ -25,12 +25,9 @@ convert_date = @convert_date
       $scope.lists = []
 
       response.data.forEach (list) ->
-        d = new Date(list.datetime)
-
         l = {}
-        l.id = convert_date d
-        l.name = d.getDate() + "." + (d.getMonth()+1) + "." + d.getFullYear()
-        l.name += " " + d.getHours() + ":" + d.getMinutes()
+        l.id = convert_date new Date list.datetime
+        l.datetime = list.datetime
 
         $scope.lists.push l
   , true

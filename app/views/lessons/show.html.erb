@@ -2,6 +2,7 @@
 
 <%= link_to t(:back), lessons_path %>
 <%= link_to t(:adding_lesson), new_lesson_path %>
+<%= link_to t(:edit_lesson), edit_lesson_path(@lesson) %>
 
 <p>
     <%= t "activerecord.attributes.lesson.giving_member_id" %>:
@@ -23,9 +24,9 @@
 </p>
 <p>
     <%= t "activerecord.attributes.lesson.datetime" %>:
-    <%= @lesson.datetime %>
+    <datetime value="<%= @lesson.datetime %>"></datetime>
 </p>
 <p>
     <%= t "activerecord.attributes.lesson.time" %>:
-    <%= @lesson.time %>
+    <time value="<%= @lesson.time %>"></time>
 </p>

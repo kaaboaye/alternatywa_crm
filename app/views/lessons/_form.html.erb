@@ -1,4 +1,10 @@
-<div class="form" ng-controller="LessonFormCtrl" ng-init="setup()">
+<div class="form" ng-controller="LessonFormCtrl"
+  <% if @lesson.new_record? %>
+    ng-init="setup()"
+  <% else %>
+    ng-init='set_data(<%= raw @public_lesson.to_json %>)'
+  <% end %>
+  >
   <table>
     <tr>
       <td>
@@ -37,12 +43,19 @@
   </table>
   <div class="inline-block">
     <label><%= t "activerecord.attributes.lesson.lesson_subject_id" %></label>
-    <select ng-model="lesson_subject_id">
-      <option value=""><%= t "helpers.select.prompt" %></option>
-      <% LessonSubject.active.each do |ls| %>
-      <option value="<%= ls.id %>"><%= ls.name %></option>
-      <% end %>
-    </select>
+    <% if @lesson.new_record? %>
+      <select ng-model="lesson_subject_id">
+        <option value=""><%= t "helpers.select.prompt" %></option>
+        <% LessonSubject.active.select(:id, :name).each do |ls| %>
+          <option value="<%= ls.id %>"><%= ls.name %></option>
+        <% end %>
+      </select>
+    <% else %>
+      <select
+        ng-model="lesson_subject_id"
+        ng-options="lesson_subject.name for lesson_subject in lesson_subjects">
+      </select>
+    <% end %>
   </div>
 
   <div class="inline-block">
@@ -56,8 +69,13 @@
   </div>
 
   <p>
-    <input type="button" ng-click="create()"
-      value="<%= t "helpers.submit.lesson.create" %>" />
+    <% if @lesson.new_record? %>
+      <input type="button" ng-click="create()"
+        value="<%= t "helpers.submit.lesson.create" %>" />
+    <% else %>
+      <input type="button" ng-click="update()"
+        value="<%= t "helpers.submit.lesson.update" %>" />
+    <% end %>
   </p>
 
   <div class="well search-block">

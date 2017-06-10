@@ -19,6 +19,7 @@ pl:
   _timestamp: Czas
   since: Od
   pending: Do
+  add: Dodaj
   select: Wybierz
 
   schools: Szkoły
@@ -70,6 +71,7 @@ pl:
   lessons_list: Lista korepetycji
   adding_lesson: Dodawanie spotkania
   add_lesson: Dodaj spotkanie
+  edit_lesson: Edytuj spotkanie
 
   lesson_subjects: Tematy korepetycji
   lesson_subjects_list: Lista tematów korepetycji
@@ -82,6 +84,7 @@ pl:
   consultations_list: Lista konsultacji
   adding_consultation: Dodawanie konsultacji
   disabled_consultations: Ukryte konsultacje
+  edit_consultation: Edytuj konsultację
 
   activerecord:
     models:
@@ -92,6 +95,7 @@ pl:
       event: Wydarzenie
       lesson: Spotkanie
       lesson_subject: Temat spotkania
+      consultation: Konsultacja
     attributes:
       school:
         name: Nazwa

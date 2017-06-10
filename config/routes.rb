@@ -60,6 +60,7 @@ Rails.application.routes.draw do
 
   # Consultations
   get 'consultations/disabled'
+  get 'consultations/search'
   resources :consultations
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -10,14 +10,14 @@
     <%= @event.name %>
 </p>
 <p>
+    <%= t "activerecord.attributes.event.event_category_id" %>:
+    <%= @event.event_category.name %>
+</p>
+<p>
     <%= t "activerecord.attributes.event.datetime" %>:
-    <%= @event.datetime %>
+    <datetime value="<%= @event.datetime %>" />
 </p>
 <p>
     <%= t "activerecord.attributes.event.description" %>:
-    <%= @event.description %>
-</p>
-<p>
-    <%= t "activerecord.attributes.event.event_category_id" %>:
-    <%= @event.event_category.name %>
+    <pre><%= @event.description %></pre>
 </p>
