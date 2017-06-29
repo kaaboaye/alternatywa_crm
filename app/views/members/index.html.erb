@@ -15,10 +15,6 @@
       placeholder="<%= t "activerecord.attributes.member.last_name" %>" />
     <input type="text" ng-model="member.pesel"
       placeholder="<%= t "activerecord.attributes.member.pesel" %>" />
-    <input type="text" ng-model="member.city"
-      placeholder="<%= t "activerecord.attributes.member.city" %>" />
-    <input type="text" ng-model="member.phone"
-      placeholder="<%= t "activerecord.attributes.member.phone" %>" />
   </div>
 
   <table class="table-list table-bordered table-striped">
@@ -27,8 +23,6 @@
         <th><%= t "activerecord.attributes.member.first_name" %></th>
         <th><%= t "activerecord.attributes.member.last_name" %></th>
         <th><%= t "activerecord.attributes.member.pesel" %></th>
-        <th><%= t "activerecord.attributes.member.city" %></th>
-        <th><%= t "activerecord.attributes.member.phone" %></th>
       </tr>
     </thead>
     <tbody>
@@ -36,8 +30,6 @@
         <td>{{ member.first_name }}</td>
         <td>{{ member.last_name }}</td>
         <td>{{ member.pesel }}</td>
-        <td>{{ member.city }}</td>
-        <td>{{ member.phone }}</td>
         <td><%= link_to t(:show), URI::unescape(member_path("{{ member.id }}")) %></td>
         <td><%= link_to t(:edit), URI::unescape(edit_member_path("{{ member.id }}")) %></td>
         <td><%= link_to t(:destroy), URI::unescape(member_path("{{ member.id }}")),

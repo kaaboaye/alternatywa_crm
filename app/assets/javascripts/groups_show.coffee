@@ -1,5 +1,6 @@
 date = new Date()
-date = new Date date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes()
+date = new Date date.getFullYear(), date.getMonth(), date.getDate(),
+  date.getHours(), date.getMinutes()
 
 convert_date = @convert_date
 
@@ -22,13 +23,11 @@ convert_date = @convert_date
       }
     })
     .then (response) ->
-      $scope.lists = []
-
-      response.data.forEach (list) ->
-        l = {}
-        l.id = convert_date new Date list.datetime
-        l.datetime = list.datetime
-
-        $scope.lists.push l
+      $scope.lists = response.data
   , true
+
+  $scope.list_id = (list) ->
+    id = Date.parse list.datetime
+    id = id.toString()
+    id.slice 0, -3
 ]

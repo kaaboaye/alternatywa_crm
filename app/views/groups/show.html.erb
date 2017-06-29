@@ -27,11 +27,20 @@
     <label><%= t :pending %></label>
     <input type="datetime-local" ng-model="finish" />
   </div>
-  <ul>
-    <li ng-repeat="list in lists">
-      <a href="<%= params[:id] %>/presence/{{ list.id }}">
-        <datetime value="{{ list.datetime }}" />
-      </a>
-    </li>
-  </ul>
+
+  <table class="table-list table-bordered table-striped">
+    <thead>
+      <tr>
+        <th><%= t "activerecord.attributes.group_presence.datetime" %></th>
+        <th><%= t :members_count %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="l in lists">
+        <td><datetime value="{{ l.datetime }}" /></td>
+        <td>{{ l.count }}</td>
+        <td><a href="<%= params[:id] %>/presence/{{ list_id(l) }}"><%= t :show %></a></td>
+      </tr>
+    </tbody>
+  </table>
 </div>

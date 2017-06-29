@@ -9,7 +9,7 @@ class Member < ApplicationRecord
     foreign_key: 'taking_member_id'
   has_many :consultations
 
-  belongs_to :school
+  belongs_to :school, optional: true
 
   validates :first_name,
     presence: true,
@@ -28,14 +28,14 @@ class Member < ApplicationRecord
     allow_blank: true,
     length: { minimum: 1 }
   validates :city,
-    presence: true,
+    allow_blank: true,
     length: { minimum: 3 }
-  validates_associated :school
+  #validates_associated :school
   validates :work,
     allow_blank: true,
     length: { minimum: 3 }
   validates :phone,
-    presence: true,
+    allow_blank: true,
     length: { maximum: 13, minimum: 9 },
     numericality: { only_integer: true }
   validates :fathers_phone,

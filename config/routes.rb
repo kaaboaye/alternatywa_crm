@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   scope 'events/categories', as: 'event_category' do
     get 'search', to: 'event_categories#search'
     get 'disabled', to: 'event_categories#disabled'
-    get ':id/restore', to: 'event_categories#restore'
+    get ':id/restore', to: 'event_categories#restore', as: 'restore'
   end
   resources :event_categories, path: 'events/categories'
 

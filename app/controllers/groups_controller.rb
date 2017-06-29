@@ -25,11 +25,12 @@ class GroupsController < ApplicationController
         .where(:datetime => since..finish)
         .group(:datetime)
         .order(datetime: :desc)
+        .count(:member_id)
     else
       group_lists = []
     end
 
-    render json: group_lists
+    render json: group_lists.map { |key, value| {"datetime": key, "count": value} }
   end
 
   def new

@@ -35,10 +35,10 @@ School.create([
   ])
 
 Member.create([
-    {first_name: "Mariusz", last_name: "Wysocki", pesel: 66010242494, city: "Mysłowice", school: school(), phone: 679980116},
-    {first_name: "Iwo", last_name: "Michalski", pesel: 67031192414, city: "Katowice", school: school(), phone: 799308747},
-    {first_name: "Gracja", last_name: "Piotrowska", pesel: 64062299884, city: "Warszawa", school: school(), phone: 603908085},
-    {first_name: "Świętomierz", last_name: "Olszewski", pesel: 73031899978, city: "Poznań", school: school(), phone: 797244283},
+    {first_name: "Mariusz", last_name: "Wysocki", pesel: 66010242494},
+    {first_name: "Iwo", last_name: "Michalski", pesel: 67031192414},
+    {first_name: "Gracja", last_name: "Piotrowska", pesel: 64062299884},
+    {first_name: "Świętomierz", last_name: "Olszewski", pesel: 73031899978},
     {first_name: "Agnieszka", last_name: "Kucharska", pesel: 83011672268, city: "Warszawa", school: school(), phone: 694633986},
     {first_name: "Sergiusz", last_name: "Adamczyk", pesel: 72072951353, city: "Łódź", school: school(), phone: 511342552},
     {first_name: "Marcelina", last_name: "Kaczmarek", pesel: 63063034360, city: "Gdańsk", school: school(), phone: 792215084},

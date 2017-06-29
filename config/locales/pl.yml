@@ -21,6 +21,9 @@ pl:
   pending: Do
   add: Dodaj
   select: Wybierz
+  members_count: Liczba osób
+  nil: Brak
+  activity: Aktywność
 
   schools: Szkoły
   adding_school: Dodawanie szkoły
@@ -115,6 +118,8 @@ pl:
       group:
         name: Nazwa
         description: Opis
+      group_presence:
+        datetime: Data
       event_category:
         name: Nazwa
       event:
