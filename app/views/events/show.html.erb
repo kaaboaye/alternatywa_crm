@@ -3,6 +3,7 @@
 
 <%= link_to t(:back), events_path %>
 <%= link_to t(:edit_event), edit_event_path(@event) %>
+<%= link_to t(:presences_list), event_presence_path(@event) %>
 <%= link_to t(:add_event), new_event_path %>
 
 <p>

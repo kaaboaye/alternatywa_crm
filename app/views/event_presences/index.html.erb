@@ -11,24 +11,25 @@
       placeholder="<%= t "activerecord.attributes.member.first_name" %>" />
     <input type="text" ng-model="member.last_name"
       placeholder="<%= t "activerecord.attributes.member.last_name" %>" />
-    <input type="text" ng-model="member.phone"
-      placeholder="<%= t "activerecord.attributes.member.phone" %>" />
-    <label><%= t :_timestamp %></label>
-    <input type="time" ng-model="time" />
+    <input type="text" ng-model="member.pesel"
+      placeholder="<%= t "activerecord.attributes.member.pesel" %>" />
+    <label><%= t :_timestamp %>
+      <input type="time" ng-model="time" />
+    </label>
 
     <table class="table-list table-bordered table-striped">
       <thead>
         <tr>
           <th><%= t "activerecord.attributes.member.first_name" %></th>
           <th><%= t "activerecord.attributes.member.last_name" %></th>
-          <th><%= t "activerecord.attributes.member.phone" %></th>
+          <th><%= t "activerecord.attributes.member.pesel" %></th>
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat="member in members">
           <td>{{ member.first_name }}</td>
           <td>{{ member.last_name }}</td>
-          <td>{{ member.phone }}</td>
+          <td>{{ member.pesel }}</td>
           <td><%= link_to t(:show), URI::unescape(member_path("{{ member.id }}")) %></td>
           <td><a href="javascript:void(0)" ng-click="add(member)" ><%= t :add %></a></td>
         </tr>
@@ -42,7 +43,7 @@
       <tr>
         <th><%= t "activerecord.attributes.member.first_name" %></th>
         <th><%= t "activerecord.attributes.member.last_name" %></th>
-        <th><%= t "activerecord.attributes.member.phone" %></th>
+        <th><%= t "activerecord.attributes.member.pesel" %></th>
         <th><%= t "activerecord.attributes.event_presence.time" %></th>
       </tr>
     </thead>
@@ -50,7 +51,7 @@
       <tr class="r" ng-repeat="r in added_members">
         <td>{{ r.member.first_name }}</td>
         <td>{{ r.member.last_name }}</td>
-        <td>{{ r.member.phone }}</td>
+        <td>{{ r.member.pesel }}</td>
         <td>{{ r.time }}</td>
         <td><%= link_to t(:show), URI::unescape(member_path("{{ r.member.id }}")) %></td>
         <td><a href="javascript:void(0)" ng-click="destroy(r.id)" ><%= t :destroy %></a></td>

@@ -31,22 +31,22 @@
       placeholder="<%= t "activerecord.attributes.member.first_name" %>" />
     <input type="text" ng-model="member.last_name"
       placeholder="<%= t "activerecord.attributes.member.last_name" %>" />
-    <input type="text" ng-model="member.phone"
-      placeholder="<%= t "activerecord.attributes.member.phone" %>" />
+    <input type="text" ng-model="member.pesel"
+      placeholder="<%= t "activerecord.attributes.member.pesel" %>" />
 
     <table class="table-list table-bordered table-striped">
       <thead>
         <tr>
           <th><%= t "activerecord.attributes.member.first_name" %></th>
           <th><%= t "activerecord.attributes.member.last_name" %></th>
-          <th><%= t "activerecord.attributes.member.phone" %></th>
+          <th><%= t "activerecord.attributes.member.pesel" %></th>
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat="member in members">
           <td>{{ member.first_name }}</td>
           <td>{{ member.last_name }}</td>
-          <td>{{ member.phone }}</td>
+          <td>{{ member.pesel }}</td>
           <td><%= link_to t(:show), URI::unescape(member_path("{{ member.id }}")) %></td>
           <td>
             <a href="javascript:void(0)" ng-click="add(member)" >
@@ -64,16 +64,16 @@
       <tr>
         <th><%= t "activerecord.attributes.member.first_name" %></th>
         <th><%= t "activerecord.attributes.member.last_name" %></th>
-        <th><%= t "activerecord.attributes.member.phone" %></th>
+        <th><%= t "activerecord.attributes.member.pesel" %></th>
       </tr>
     </thead>
     <tbody>
       <tr class="r" ng-repeat="r in added_members">
-        <td>{{ r.member.first_name }}</td>
-        <td>{{ r.member.last_name }}</td>
-        <td>{{ r.member.phone }}</td>
+        <td>{{ r.first_name }}</td>
+        <td>{{ r.last_name }}</td>
+        <td>{{ r.pesel }}</td>
         <td><%= link_to t(:show), URI::unescape(member_path("{{ r.member.id }}")) %></td>
-        <td><a href="javascript:void(0)" ng-click="destroy(r.id)" ><%= t :destroy %></a></td>
+        <td><a href="javascript:void(0)" ng-click="destroy(r)" ><%= t :destroy %></a></td>
       </tr>
     </tbody>
   </table>

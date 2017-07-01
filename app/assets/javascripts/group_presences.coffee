@@ -42,8 +42,8 @@ convert_date = @convert_date
   $scope.add = (member) ->
     is_exist = false
 
-    $scope.added_members.forEach (_member) ->
-      if _member.id == member.id
+    $scope.added_members.forEach (presence) ->
+      if presence.member_id == member.id
         is_exist = true
 
     if ! is_exist
@@ -60,13 +60,13 @@ convert_date = @convert_date
         update_added()
   # end
 
-  $scope.destroy = (id) ->
+  $scope.destroy = (presence) ->
     $http({
       url: "/groups/presence.json",
       method: "DELETE",
       params: {
         authenticity_token: $("meta[name='csrf-token']").attr('content'),
-        id: id
+        id: presence.id
       }
     })
     .then (response) ->

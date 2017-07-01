@@ -45,6 +45,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @event.datetime = Time.now
   end
 
   def create

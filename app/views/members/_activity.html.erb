@@ -1,5 +1,5 @@
-<div ng-controller="MembersActivityCtrl"
-  ng-init="search.member_id=<%= params[:id] %>">
+<div class="activity" ng-controller="MembersActivityCtrl"
+  ng-init="member_id=<%= params[:id] %>">
   <div class="well search-block">
     <label>
       <%= t :groups %>
@@ -10,8 +10,12 @@
       <input type="checkbox" ng-model="search.events">
     </label>
     <label>
-      <%= t :lessons %>
-      <input type="checkbox" ng-model="search.lessons">
+      <%= t :giving_lessons %>
+      <input type="checkbox" ng-model="search.giving_lessons">
+    </label>
+    <label>
+      <%= t :taking_lessons %>
+      <input type="checkbox" ng-model="search.taking_lessons">
     </label>
     <label>
       <%= t :consultations %>
@@ -27,26 +31,43 @@
     </label>
   </div>
 
+  <div class="stats">
+    <table>
+      <tbody>
+        <tr>
+          <th scope="row">
+            <%= t :attendance %>
+          </th>
+            <td>
+              {{ activities.length }}
+            </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <%= t :number_of_hours %>
+          </th>
+            <td>
+              {{ number_of_hours }}
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
   <table class="table-list table-bordered table-striped">
     <thead>
       <tr>
-        <th><%= t "activerecord.attributes.event.name" %></th>
-        <th><%= t "activerecord.attributes.event.event_category_id" %></th>
-        <th><%= t "activerecord.attributes.event.datetime" %></th>
+        <th><%= t :name %></th>
+        <th><%= t :_date %></th>
+        <th><%= t :_timestamp %></th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="event in events">
-        <td>{{ event.name }}</td>
-        <td>{{ event.category }}</td>
-        <td><datetime value="{{ event.datetime }}" /></td>
-        <td><%= link_to t(:show), URI::unescape(event_path("{{ event.id }}")) %></td>
-        <td><%= link_to t(:edit), URI::unescape(edit_event_path("{{ event.id }}")) %></td>
-        <td><%= link_to t(:presences_list), URI::unescape(event_presence_path("{{ event.id }}")) %></td>
-        <td><%= link_to t(:destroy), URI::unescape(event_path("{{ event.id }}")),
-                  method: :delete,
-                  data: { confirm: t(:are_you_sure) } %></td>
-        </td>
+      <tr ng-repeat="a in activities | orderBy:'-datetime'">
+        <td>{{ a.name }}</td>
+        <td><datetime value="{{ a.datetime }}" /></td>
+        <td><time value="{{ a.time }}" /></td>
+        <td><a href="{{ a.url }}"><%= t :show %></a></td>
       </tr>
     </tbody>
   </table>

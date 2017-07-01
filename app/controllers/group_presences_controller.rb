@@ -14,10 +14,13 @@ class GroupPresencesController < ApplicationController
     end
 
     members = []
-    grop_presences.each do |grop_presence|
+    grop_presences.each do |i|
       members.push({
-          id: grop_presence.id,
-          member: grop_presence.member
+          id: i.id,
+          member_id: i.member.id,
+          first_name: i.member.first_name,
+          last_name: i.member.last_name,
+          pesel: i.member.pesel
         })
     end
 

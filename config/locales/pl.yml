@@ -24,6 +24,8 @@ pl:
   members_count: Liczba osób
   nil: Brak
   activity: Aktywność
+  attendance: Frekwencja
+  number_of_hours: Liczba godzin
 
   schools: Szkoły
   adding_school: Dodawanie szkoły
@@ -71,7 +73,10 @@ pl:
   add_event_category: Dodaj kategorię wydarzeń
   disabled_event_categories: Ukryte kategorie
 
+  lesson: Korepetycje
   lessons: Korepetycje
+  giving_lessons: Udzielane korepetycje
+  taking_lessons: Pobierane korepetycje
   lessons_list: Lista korepetycji
   adding_lesson: Dodawanie spotkania
   add_lesson: Dodaj spotkanie
