@@ -46,6 +46,31 @@ class MembersController < ApplicationController
     end
   end
 
+  def activity
+    activities = []
+
+    if params[:groups] == "true"
+      since = params[:since]
+      finish = params[:finish]
+
+      group_activities = GroupPresence.active
+        .select(:datetime)
+        .where(member_id: params[:member_id])
+        .where(:datetime => since..finish)
+        .order(datetime: :desc)
+
+      group_activities.each do |a|
+        activities.push ({
+          type: I18n.t(:group),
+          datetime: a.datetime
+          #time: 
+        })
+      end
+    end
+
+    render json: activities
+  end
+
   def edit
     @member = Member.find_or_create_by id: params[:id]
   end
@@ -73,7 +98,7 @@ class MembersController < ApplicationController
   end
 
   def restore
-    @member = Member.find params[:id]
+    @member = Member.find params[:member_id]
     @member.active = true
     @member.save
 

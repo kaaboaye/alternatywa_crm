@@ -38,7 +38,7 @@
   </p>
   <p>
     <%= f.label :school_id %><br>
-    <%= f.collection_select :school_id, School.active, :id, :name, prompt: true %>
+    <%= f.collection_select :school_id, School.active, :id, :name, :include_blank => t("nil") %>
   </p>
   <p>
     <%= f.label :work %><br>

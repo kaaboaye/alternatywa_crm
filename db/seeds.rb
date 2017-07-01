@@ -50,12 +50,12 @@ Member.create([
   ])
 
 Group.create([
-    {name: "Bieganie"},
-    {name: "Konie"},
-    {name: "Rowery"},
-    {name: "Narty"},
-    {name: "Tańce"},
-    {name: "Cokolwiek"}
+    {name: "Bieganie", description: "Jakiś opis", time: Time.at(2.hours)},
+    {name: "Konie", description: "hghjfhjkdfk", time: Time.at(1.hours)},
+    {name: "Rowery", description: "1234565432", time: Time.at(3.hours)},
+    {name: "Narty", time: Time.at(5.hours)},
+    {name: "Tańce", time: Time.at(2.hours)},
+    {name: "Cokolwiek", time: Time.at(2.hours)}
   ])
 
 EventCategory.create([

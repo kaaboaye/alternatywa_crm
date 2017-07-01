@@ -4,4 +4,7 @@ class Group < ApplicationRecord
   validates :name,
     presence: true,
     length: { minimum: 3 }
+
+  validates :time,
+    presence: true
 end

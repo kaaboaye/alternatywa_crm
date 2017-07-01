@@ -33,6 +33,7 @@ pl:
   edit_school: Edycja szkoły
 
   members: Osoby
+  member_info: Informacje
   members_list: Lista osób
   adding_member: Dodawanie osoby
   add_member: Dodaj osobę
@@ -118,6 +119,7 @@ pl:
       group:
         name: Nazwa
         description: Opis
+        time: Czas spotkania
       group_presence:
         datetime: Data
       event_category:

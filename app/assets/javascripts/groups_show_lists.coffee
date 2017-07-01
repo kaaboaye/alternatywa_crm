@@ -4,7 +4,7 @@ date = new Date date.getFullYear(), date.getMonth(), date.getDate(),
 
 convert_date = @convert_date
 
-@app.controller "GroupsShowCtrl", ["$scope", "$http", ($scope, $http) ->
+@app.controller "GroupsShowListsCtrl", ["$scope", "$http", ($scope, $http) ->
   $scope.since = new Date(Date.parse(date) - 30 * 24 * 60 * 60 * 1000)
   $scope.finish = date
   $scope.lists = []

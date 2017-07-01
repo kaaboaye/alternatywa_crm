@@ -48,11 +48,7 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @group = Group.find_by_id params[:id]
-
-    if @group.nil?
-      render 'index'
-    end
+    @group = Group.find params[:id]
   end
 
   def edit
@@ -91,6 +87,6 @@ class GroupsController < ApplicationController
 
 private
   def group_params
-    params.require(:group).permit :name, :description
+    params.require(:group).permit :name, :description, :time
   end
 end

@@ -1,118 +1,21 @@
-<% @title = "#{@member.first_name} #{@member.last_name}" %>
 <div>
-  <h2><%= t "activerecord.models.member" %></h2>
+  <h2><%= @title = "#{@member.first_name} #{@member.last_name}" %></h2>
 
   <%= link_to t(:back), members_path %>
   <%= link_to t(:add_member), new_member_path %>
   <%= link_to t(:edit_member), edit_member_path(@member) %>
 </div>
 
-<div class="inline-block">
-  <table class="table-list table-bordered">
-    <tbody>
-      <tr>
-        <th scope="row">
-          <%= t "activerecord.attributes.member.first_name" %>
-        </th>
-        <td>
-          <%= @member.first_name %>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">
-          <%= t "activerecord.attributes.member.last_name" %>
-        </th>
-        <td>
-          <%= @member.last_name %>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">
-          <%= t "activerecord.attributes.member.pesel" %>
-        </th>
-        <td>
-          <%= @member.pesel %>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">
-          <%= t "activerecord.attributes.member.street" %>
-        </th>
-        <td>
-          <%= @member.street %>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">
-          <%= t "activerecord.attributes.member.house_number" %>
-        </th>
-        <td>
-          <%= @member.house_number %>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">
-          <%= t "activerecord.attributes.member.city" %>
-        </th>
-        <td>
-          <%= @member.city %>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">
-          <%= t "activerecord.attributes.member.school" %>
-        </th>
-        <td>
-          <% if @member.school %>
-            <%= @member.school.name %>
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">
-          <%= t "activerecord.attributes.member.work" %>
-        </th>
-        <td>
-          <%= @member.work %>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">
-          <%= t "activerecord.attributes.member.email" %>
-        </th>
-        <td>
-          <%= @member.email %>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">
-          <%= t "activerecord.attributes.member.phone" %>
-        </th>
-        <td>
-          <%= @member.phone %>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">
-          <%= t "activerecord.attributes.member.fathers_phone" %>
-        </th>
-        <td>
-          <%= @member.fathers_phone %>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">
-          <%= t "activerecord.attributes.member.mothers_phone" %>
-        </th>
-        <td>
-          <%= @member.mothers_phone %>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div class="hideable">
+  <h3 class="hideable-header"><%= t :member_info %></h3>
+  <div class="hideable-content">
+    <%= render "info" %>
+  </div>
 </div>
 
-<div class="inline-block">
-  <h3><%= t :activity %></h3>
-  
+<div class="hideable">
+  <h3 class="hideable-header"><%= t :activity %></h3>
+  <div class="hideable-content">
+    <%= render "activity" %>
+  </div>
 </div>

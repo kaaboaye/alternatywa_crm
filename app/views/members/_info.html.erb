@@ -1,0 +1,102 @@
+<table class="table-list table-bordered">
+  <tbody>
+    <tr>
+      <th scope="row">
+        <%= t "activerecord.attributes.member.first_name" %>
+      </th>
+      <td>
+        <%= @member.first_name %>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <%= t "activerecord.attributes.member.last_name" %>
+      </th>
+      <td>
+        <%= @member.last_name %>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <%= t "activerecord.attributes.member.pesel" %>
+      </th>
+      <td>
+        <%= @member.pesel %>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <%= t "activerecord.attributes.member.street" %>
+      </th>
+      <td>
+        <%= @member.street %>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <%= t "activerecord.attributes.member.house_number" %>
+      </th>
+      <td>
+        <%= @member.house_number %>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <%= t "activerecord.attributes.member.city" %>
+      </th>
+      <td>
+        <%= @member.city %>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <%= t "activerecord.attributes.member.school_id" %>
+      </th>
+      <td>
+        <% if @member.school %>
+          <%= @member.school.name %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <%= t "activerecord.attributes.member.work" %>
+      </th>
+      <td>
+        <%= @member.work %>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <%= t "activerecord.attributes.member.email" %>
+      </th>
+      <td>
+        <%= @member.email %>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <%= t "activerecord.attributes.member.phone" %>
+      </th>
+      <td>
+        <%= @member.phone %>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <%= t "activerecord.attributes.member.fathers_phone" %>
+      </th>
+      <td>
+        <%= @member.fathers_phone %>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <%= t "activerecord.attributes.member.mothers_phone" %>
+      </th>
+      <td>
+        <%= @member.mothers_phone %>
+      </td>
+    </tr>
+  </tbody>
+</table>

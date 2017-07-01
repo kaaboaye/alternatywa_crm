@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'home#index'
+  root to: 'pages#index'
 
   ## Event categories
   scope 'events/categories', as: 'event_category' do
@@ -37,8 +37,10 @@ Rails.application.routes.draw do
   ## Members
   get 'members/search'
   get 'members/disabled'
-  get 'members/:id/restore', to: 'members#restore'
-  resources :members
+  resources :members do
+    get 'restore', to: 'members#restore', as: 'restore'
+    get 'activity', to: 'members#activity', as: 'activity'
+  end
 
   ## Schools
   get 'schools/search'
