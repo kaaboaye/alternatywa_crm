@@ -33,6 +33,30 @@ class GroupsController < ApplicationController
     render json: group_lists.map { |key, value| {"datetime": key, "count": value} }
   end
 
+  def active_members
+    since = params[:since]
+    finish = params[:finish]
+
+    tmp = GroupPresence.active
+      .select(:member_id)
+      .group(:member_id)
+      .where(:datetime => since..finish)
+      .count(:member_id)
+
+    member_ids = []
+    tmp.each do |id, count|
+      if count >= params[:min_attendece].to_i
+        member_ids.push id
+      end
+    end
+
+    members = Member.active
+      .select(:id, :first_name, :last_name, :pesel)
+      .where(:id => member_ids)
+
+    render json: members
+  end
+
   def new
     @group = Group.new
   end

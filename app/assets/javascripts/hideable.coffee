@@ -11,3 +11,4 @@ $(document).ready () ->
     content = $(@).parent().children ".hideable-content"
 
     content.toggle()
+    $(@).trigger "dom-change"

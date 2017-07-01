@@ -67,10 +67,8 @@ class LessonsController < ApplicationController
   end
 
   def show
-    @lesson = Lesson.find_by_id(params[:id])
-    if @lesson.nil?
-      render 'index'
-    end
+    @lesson = Lesson.find(params[:id])
+
   end
 
   def edit

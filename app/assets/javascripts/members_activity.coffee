@@ -18,6 +18,7 @@ convert_date = @convert_date
     })
     .then (response) ->
       $scope.activities = response.data
+      $(document).trigger "dom-change"
 
       noh = $scope.activities.reduce (x, activity) ->
         atime = new Date activity.time
@@ -34,7 +35,7 @@ convert_date = @convert_date
       if noh > 0
         hh = Math.floor noh / 60
         mm = noh % 60
-        
+
         if mm < 10
           mm = "0" + mm
 

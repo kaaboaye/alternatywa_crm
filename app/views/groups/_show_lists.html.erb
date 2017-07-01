@@ -1,5 +1,4 @@
 <div ng-controller="GroupsShowListsCtrl">
-  <h2><%= t :presences_lists %></h2>
   <input type="hidden" ng-init="group_id=<%= @group.id %>" />
   <div class="alert alert-danger" ng-repeat="error in errors">
     {{ error }}

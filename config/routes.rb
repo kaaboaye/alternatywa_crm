@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     get 'presence/search', to: 'group_presences#search'
     post 'presence/create', to: 'group_presences#create'
     get 'presence/:list_id', to: 'group_presences#show'
+    get 'active_members', to: 'groups#active_members'
   end
 
   ## Members

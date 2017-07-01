@@ -25,6 +25,7 @@ pl:
   nil: Brak
   activity: Aktywność
   attendance: Frekwencja
+  min_attendance: Minimalna frekwenja
   number_of_hours: Liczba godzin
 
   schools: Szkoły
@@ -49,6 +50,7 @@ pl:
   disabled_groups: Ukryte grupy
   show_group: Pokaż grupę
   add_group: Dodaj grupę
+  active_members: Aktywne osoby
 
   presences_list: Lista obecności
   presences_lists: Listy obecności

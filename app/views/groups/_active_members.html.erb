@@ -1,0 +1,35 @@
+<div ng-controller="GroupActiveMembersCtrl"
+  ng-init="group_id=<%= params[:id] %>">
+  <div class="well search-block">
+    <label>
+      <%= t :min_attendance %>
+      <input type="number" ng-model="search.min_attendece" style="width: 50px;">
+    </label>
+    <label>
+      <%= t :since %>
+      <input type="datetime-local" ng-model="search.since" />
+    </label>
+    <label>
+      <%= t :pending %>
+      <input type="datetime-local" ng-model="search.finish" />
+    </label>
+  </div>
+
+  <table class="table-list table-bordered table-striped">
+    <thead>
+      <tr>
+        <th><%= t "activerecord.attributes.member.first_name" %></th>
+        <th><%= t "activerecord.attributes.member.last_name" %></th>
+        <th><%= t "activerecord.attributes.member.pesel" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="member in members">
+        <td>{{ member.first_name }}</td>
+        <td>{{ member.last_name }}</td>
+        <td>{{ member.pesel }}</td>
+        <td><%= link_to t(:show), URI::unescape(member_path("{{ member.id }}")) %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

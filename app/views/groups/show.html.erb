@@ -11,12 +11,24 @@
     <%= @group.name %>
 </p>
 <p>
-    <%= t "activerecord.attributes.group.description" %>:
-    <pre><%= @group.description %></pre>
-</p>
-<p>
     <%= t "activerecord.attributes.group.time" %>:
     <time value="<%= @group.time %>" />
 </p>
+<p>
+    <%= t "activerecord.attributes.group.description" %>:
+    <pre><%= @group.description %></pre>
+</p>
 
-<%= render "show_lists" %>
+<div class="hideable">
+  <h3 class="hideable-header"><%= t :presences_lists %></h3>
+  <div class="hideable-content">
+    <%= render "show_lists" %>
+  </div>
+</div>
+
+<div class="hideable">
+  <h3 class="hideable-header"><%= t :active_members %></h3>
+  <div class="hideable-content">
+    <%= render "active_members" %>
+  </div>
+</div>
