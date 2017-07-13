@@ -49,6 +49,8 @@ pl:
   disabled_members: Ukryte osoby
 
   recommendations: Zalecenia
+  recommendations_for: Zalecenia dla
+  recommendation_for: Zalecenie dla
   add_recommendation: Dodaj zalecenie
   adding_recommendation_for: Dodawanie zalecenia dla
   edit_recommendation: Edytuj zalecenie
@@ -117,6 +119,7 @@ pl:
       lesson: Spotkanie
       lesson_subject: Temat spotkania
       consultation: Konsultacja
+      recommendation: Zalecenie
     attributes:
       school:
         name: Nazwa
@@ -136,6 +139,9 @@ pl:
         fathers_phone: Numer telefonu ojca
         mothers_phone: Numer telefonu matki
         is_parents_agreement: Zgoda rodziców?
+        note: Notatka
+      recommendation:
+        member_id: Osoba
         note: Notatka
       group:
         name: Nazwa

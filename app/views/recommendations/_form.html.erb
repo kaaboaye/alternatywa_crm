@@ -1,4 +1,4 @@
-<%= form_for @recommendation do |f| %>
+<%= form_for @recommendation, url: member_recommendations_path(@recommendation.member) do |f| %>
   <% if @recommendation.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -11,10 +11,10 @@
       </ul>
     </div>
   <% end %>
-
+  <input type="hidden" name="id" value="<%= @recommendation.id %>" />
   <p>
     <%= f.label :note %><br>
-    <%= f.textarea :note %>
+    <%= f.text_area :note %>
   </p>
   <p>
     <%= f.submit %>

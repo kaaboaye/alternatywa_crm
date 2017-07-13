@@ -45,6 +45,8 @@ Rails.application.routes.draw do
     resources :recommendations
   end
 
+  patch 'members/:member_id/recommendations', to: 'recommendations#update'
+
   ## Schools
   get 'schools/search'
   get 'schools/disabled'

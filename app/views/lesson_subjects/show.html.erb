@@ -1,7 +1,7 @@
 <% @title = t("activerecord.models.lesson_subject") + ": " + @lesson_subject.name %>
 <h2><%= t "activerecord.models.lesson_subject" %></h2>
-<%= link_to t(:back), lesson_subjects_path %>
-<%= link_to t(:edit_lesson_subject), edit_lesson_subject_path(@lesson_subject) %>
+<%= link_to t(:back), lesson_subjects_path %> |
+<%= link_to t(:edit_lesson_subject), edit_lesson_subject_path(@lesson_subject) %> | 
 <%= link_to t(:adding_lesson_subject), new_lesson_subject_path %>
 
 <p>

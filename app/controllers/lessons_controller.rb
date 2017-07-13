@@ -36,13 +36,11 @@ class LessonsController < ApplicationController
       json.push({
           id: l.id,
           giving_member: {
-            first_name: l.giving_member.first_name,
-            last_name: l.giving_member.last_name,
+            full_name: l.giving_member.full_name,
             pesel: l.giving_member.pesel
           },
           taking_member: {
-            first_name: l.taking_member.first_name,
-            last_name: l.taking_member.last_name,
+            full_name: l.taking_member.full_name,
             pesel: l.taking_member.pesel
           },
           lesson_subject: l.lesson_subject.name,

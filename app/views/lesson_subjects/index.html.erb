@@ -1,6 +1,6 @@
 <h1><%= @title = t :lesson_subjects_list %></h1>
 
-<%= link_to t(:adding_lesson_subject), new_lesson_subject_path %>
+<%= link_to t(:adding_lesson_subject), new_lesson_subject_path %> | 
 <%= link_to t(:disabled_lesson_subjects), controller: "lesson_subjects", action: "disabled" %>
 
 <div ng-controller="LessonSubjectCtrl">

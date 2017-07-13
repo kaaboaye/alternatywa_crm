@@ -49,4 +49,8 @@ class Member < ApplicationRecord
     allow_blank: true,
     length: { maximum: 13, minimum: 9 },
     numericality: { only_integer: true }
+
+  def full_name
+    first_name + " " + last_name
+  end
 end

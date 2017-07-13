@@ -1,3 +1,6 @@
-<h2><%= @title = t :adding_recommendation_for %></h2>
-<%= link_to t(:back), schools_path %>
-<%= render 'form' %>
+<h2><%= @title = "#{t :adding_recommendation_for} #{@recommendation.member.full_name}" %></h2>
+
+<%= link_to t("activerecord.models.member"), member_path(@recommendation.member) %> |
+<%= link_to t(:recommendations), member_recommendations_path(@recommendation.member) %>
+
+<%= render "form" %>

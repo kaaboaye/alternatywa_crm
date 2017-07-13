@@ -37,13 +37,11 @@
     <tbody>
       <tr ng-repeat="l in lessons">
         <td>
-          {{ l.giving_member.first_name }}
-          {{ l.giving_member.last_name }}
+          {{ l.giving_member.full_name }}
           {{ l.giving_member.pesel }}
         </td>
         <td>
-          {{ l.taking_member.first_name }}
-          {{ l.taking_member.last_name }}
+          {{ l.taking_member.full_name }}
           {{ l.taking_member.pesel }}
         </td>
         <td>

@@ -1,6 +1,6 @@
 <h1><%= @title = t :groups_list %></h1>
 
-<%= link_to t(:adding_group), new_group_path %>
+<%= link_to t(:adding_group), new_group_path %> | 
 <%= link_to t(:disabled_groups), controller: "groups", action: "disabled" %>
 
 <div ng-controller="GroupsCtrl">

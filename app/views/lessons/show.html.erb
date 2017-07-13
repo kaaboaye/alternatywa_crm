@@ -6,15 +6,13 @@
 
 <p>
     <%= t "activerecord.attributes.lesson.giving_member_id" %>:
-    <%= @lesson.giving_member.first_name %>
-    <%= @lesson.giving_member.last_name %>
+    <%= @lesson.giving_member.full_name %>
     <%= @lesson.giving_member.pesel %>
     <%= link_to t(:show), member_path(@lesson.giving_member) %>
 </p>
 <p>
     <%= t "activerecord.attributes.lesson.taking_member_id" %>:
-    <%= @lesson.taking_member.first_name %>
-    <%= @lesson.taking_member.last_name %>
+    <%= @lesson.taking_member.full_name %>
     <%= @lesson.taking_member.pesel %>
     <%= link_to t(:show), member_path(@lesson.taking_member) %>
 </p>
