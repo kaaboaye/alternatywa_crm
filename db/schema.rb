@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170609144210) do
+ActiveRecord::Schema.define(version: 20170713145624) do
 
   create_table "consultations", force: :cascade do |t|
     t.boolean "active", default: true
@@ -87,7 +87,9 @@ ActiveRecord::Schema.define(version: 20170609144210) do
     t.boolean "active", default: true
     t.string "first_name"
     t.string "last_name"
+    t.string "id_card"
     t.integer "pesel", limit: 5
+    t.date "birth_date"
     t.string "street"
     t.string "house_number"
     t.string "city"
@@ -97,6 +99,16 @@ ActiveRecord::Schema.define(version: 20170609144210) do
     t.integer "phone", limit: 6
     t.integer "fathers_phone", limit: 6
     t.integer "mothers_phone", limit: 6
+    t.boolean "is_parents_agreement"
+    t.text "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "recommendations", force: :cascade do |t|
+    t.boolean "active", default: true
+    t.integer "member_id"
+    t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

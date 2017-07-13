@@ -1,3 +1,4 @@
+<div ng-controller="MembersFormCtrl">
 <%= form_for @member do |f| %>
   <% if @member.errors.any? %>
     <div id="error_explanation">
@@ -12,55 +13,88 @@
     </div>
   <% end %>
 
-  <p>
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
-  </p>
-  <p>
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </p>
-  <p>
-    <%= f.label :pesel %><br>
-    <%= f.number_field :pesel %>
-  </p>
-  <p>
-    <%= f.label :street %><br>
-    <%= f.text_field :street %>
-  </p>
-  <p>
-    <%= f.label :house_number %><br>
-    <%= f.text_field :house_number %>
-  </p>
-  <p>
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </p>
-  <p>
-    <%= f.label :school_id %><br>
-    <%= f.collection_select :school_id, School.active, :id, :name, :include_blank => t("nil") %>
-  </p>
-  <p>
-    <%= f.label :work %><br>
-    <%= f.text_field :work %>
-  </p>
-  <p>
-    <%= f.label :email %><br>
-    <%= f.email_field :email %>
-  </p>
-  <p>
-    <%= f.label :phone %><br>
-    <%= f.number_field :phone %>
-  </p>
-  <p>
-    <%= f.label :fathers_phone %><br>
-    <%= f.number_field :fathers_phone %>
-  </p>
-  <p>
-    <%= f.label :mothers_phone %><br>
-    <%= f.number_field :mothers_phone %>
-  </p>
-  <p>
+  <div>
+    <span>
+      <%= f.label :first_name %><br />
+      <%= f.text_field :first_name %>
+    </span>
+    <span>
+      <%= f.label :last_name %><br />
+      <%= f.text_field :last_name %>
+    </span>
+  </div>
+  <div>
+    <span>
+      <%= f.label :id_card %><br />
+      <%= f.text_field :id_card %>
+    </span>
+    <span>
+      <%= f.label :pesel %>
+      <input type="checkbox" disabled readonly ng-model="is_pesel" /><br />
+      <%= f.text_field :pesel, "ng-model" => "pesel" %>
+    </span>
+    <span>
+      <%= f.label :birth_date %><br />
+      <%= f.date_field :birth_date, "ng-model" => "birth_date" %>
+    </span>
+  </div>
+  <div>
+    <span>
+      <%= f.label :street %><br />
+      <%= f.text_field :street %>
+    </span>
+    <span>
+      <%= f.label :house_number %><br />
+      <%= f.text_field :house_number %>
+    </span>
+    <span>
+      <%= f.label :city %><br />
+      <%= f.text_field :city %>
+    </span>
+  </div>
+  <div>
+    <span>
+      <%= f.label :school_id %><br />
+      <%= f.collection_select :school_id, School.active,
+            :id, :name, :include_blank => t("nil") %>
+    </span>
+    <span>
+      <%= f.label :work %><br />
+      <%= f.text_field :work %>
+    </span>
+  </div>
+  <div>
+    <span>
+      <%= f.label :email %><br />
+      <%= f.email_field :email %>
+    </span>
+    <span>
+      <%= f.label :phone %><br />
+      <%= f.number_field :phone %>
+    </span>
+  </div>
+  <div>
+    <span>
+      <%= f.label :fathers_phone %><br />
+      <%= f.number_field :fathers_phone %>
+    </span>
+    <span>
+      <%= f.label :mothers_phone %><br />
+      <%= f.number_field :mothers_phone %>
+    </span>
+    <span>
+      <%= f.label :is_parents_agreement %><br />
+      <%= f.check_box :is_parents_agreement %>
+    </span>
+  </div>
+  <div>
+    <span>
+      <%= f.label :note %><br />
+      <%= f.text_area :note %>
+    </span>
+  </div>
+  <div>
     <%= f.submit %>
-  </p>
+  </div>
 <% end %>
+</div>

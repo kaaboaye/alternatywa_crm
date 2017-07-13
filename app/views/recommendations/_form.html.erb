@@ -1,0 +1,22 @@
+<%= form_for @recommendation do |f| %>
+  <% if @recommendation.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= t :error, count: @recommendation.errors.count %>
+      </h2>
+      <ul>
+        <% @recommendation.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :note %><br>
+    <%= f.textarea :note %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

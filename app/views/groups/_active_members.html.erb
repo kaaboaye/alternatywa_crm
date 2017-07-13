@@ -20,6 +20,7 @@
       <tr>
         <th><%= t "activerecord.attributes.member.first_name" %></th>
         <th><%= t "activerecord.attributes.member.last_name" %></th>
+        <th><%= t "activerecord.attributes.member.phone" %></th>
         <th><%= t "activerecord.attributes.member.pesel" %></th>
       </tr>
     </thead>
@@ -27,6 +28,7 @@
       <tr ng-repeat="member in members">
         <td>{{ member.first_name }}</td>
         <td>{{ member.last_name }}</td>
+        <td>{{ member.phone }}</td>
         <td>{{ member.pesel }}</td>
         <td><%= link_to t(:show), URI::unescape(member_path("{{ member.id }}")) %></td>
       </tr>

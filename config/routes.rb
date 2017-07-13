@@ -41,6 +41,8 @@ Rails.application.routes.draw do
   resources :members do
     get 'restore', to: 'members#restore', as: 'restore'
     get 'activity', to: 'members#activity', as: 'activity'
+
+    resources :recommendations
   end
 
   ## Schools

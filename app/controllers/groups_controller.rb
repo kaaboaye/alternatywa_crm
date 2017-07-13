@@ -51,7 +51,7 @@ class GroupsController < ApplicationController
     end
 
     members = Member.active
-      .select(:id, :first_name, :last_name, :pesel)
+      .select(:id, :first_name, :last_name, :phone, :pesel)
       .where(:id => member_ids)
 
     render json: members

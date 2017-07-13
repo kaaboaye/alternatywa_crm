@@ -69,9 +69,15 @@ class MembersController < ApplicationController
     @member = Member.find params[:id]
 
     if @member.update member_params
-      redirect_to @member
+      respond_to do |f|
+        f.html { redirect_to @member }
+        f.json { render json: {success: true} }
+      end
     else
-      render 'edit'
+      respond_to do |f|
+        f.html { render 'edit' }
+        f.json { render json: {success: false} }
+      end
     end
   end
 
@@ -97,9 +103,9 @@ class MembersController < ApplicationController
 
 private
   def member_params
-    params.require(:member).permit :first_name, :last_name, :pesel, :street,
-      :house_number, :city, :school_id, :work, :email, :phone, :fathers_phone,
-      :mothers_phone
+    params.require(:member).permit :first_name, :last_name, :id_card, :pesel,
+      :birth_date, :street, :house_number, :city, :school_id, :work, :email,
+      :phone, :fathers_phone, :mothers_phone, :is_parents_agreement, :note
   end
 
   def groups_activity member

@@ -8,6 +8,7 @@ class Member < ApplicationRecord
     class_name: 'Lesson',
     foreign_key: 'taking_member_id'
   has_many :consultations
+  has_many :recommendations
 
   belongs_to :school, optional: true
 
@@ -21,6 +22,8 @@ class Member < ApplicationRecord
     presence: true
   validates_pesel_of :pesel,
     message: I18n.t("errors.messages.invalid_pesel")
+  validates :birth_date,
+    presence: true
   validates :street,
     allow_blank: true,
     length: { minimum: 3 }

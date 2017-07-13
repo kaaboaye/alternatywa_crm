@@ -35,18 +35,18 @@ School.create([
   ])
 
 Member.create([
-    {first_name: "Mariusz", last_name: "Wysocki", pesel: 66010242494},
-    {first_name: "Iwo", last_name: "Michalski", pesel: 67031192414},
-    {first_name: "Gracja", last_name: "Piotrowska", pesel: 64062299884},
-    {first_name: "Świętomierz", last_name: "Olszewski", pesel: 73031899978},
-    {first_name: "Agnieszka", last_name: "Kucharska", pesel: 83011672268, city: "Warszawa", school: school(), phone: 694633986},
-    {first_name: "Sergiusz", last_name: "Adamczyk", pesel: 72072951353, city: "Łódź", school: school(), phone: 511342552},
-    {first_name: "Marcelina", last_name: "Kaczmarek", pesel: 63063034360, city: "Gdańsk", school: school(), phone: 792215084},
-    {first_name: "Wera", last_name: "Tomaszewska", pesel: 42122594306, city: "Szczecin", school: school(), phone: 601817834},
-    {first_name: "Kornelia", last_name: "Pawlak", pesel: 62030682283, city: "Poznań", school: school(), phone: 666161390},
-    {first_name: "Izabella", last_name: "Jaworska", pesel: 73022110103, city: "Jastrzębie-Zdrój", school: school(), phone: 787554584},
-    {first_name: "Radosław", last_name: "Czarnecki", pesel: 33120894536, city: "Kraków", school: school(), phone: 692541465},
-    {first_name: "Ludwika", last_name: "Kamińska", pesel: 88092333008, city: "Gdynia", school: school(), phone: 515310640}
+    {first_name: "Mariusz", last_name: "Wysocki", pesel: 66010242494, birth_date: d()},
+    {first_name: "Iwo", last_name: "Michalski", pesel: 67031192414, birth_date: d()},
+    {first_name: "Gracja", last_name: "Piotrowska", pesel: 64062299884, birth_date: d()},
+    {first_name: "Świętomierz", last_name: "Olszewski", pesel: 73031899978, birth_date: d()},
+    {first_name: "Agnieszka", last_name: "Kucharska", pesel: 83011672268, birth_date: d(), city: "Warszawa", school: school(), phone: 694633986},
+    {first_name: "Sergiusz", last_name: "Adamczyk", pesel: 72072951353, birth_date: d(), city: "Łódź", school: school(), phone: 511342552},
+    {first_name: "Marcelina", last_name: "Kaczmarek", pesel: 63063034360, birth_date: d(), city: "Gdańsk", school: school(), phone: 792215084},
+    {first_name: "Wera", last_name: "Tomaszewska", pesel: 42122594306, birth_date: d(), city: "Szczecin", school: school(), phone: 601817834},
+    {first_name: "Kornelia", last_name: "Pawlak", pesel: 62030682283, birth_date: d(), city: "Poznań", school: school(), phone: 666161390},
+    {first_name: "Izabella", last_name: "Jaworska", pesel: 73022110103, birth_date: d(), city: "Jastrzębie-Zdrój", school: school(), phone: 787554584},
+    {first_name: "Radosław", last_name: "Czarnecki", pesel: 33120894536, birth_date: d(), city: "Kraków", school: school(), phone: 692541465},
+    {first_name: "Ludwika", last_name: "Kamińska", pesel: 88092333008, birth_date: d(), city: "Gdynia", school: school(), phone: 515310640}
   ])
 
 Group.create([

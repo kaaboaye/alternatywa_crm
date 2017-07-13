@@ -27,6 +27,9 @@ pl:
   attendance: Frekwencja
   min_attendance: Minimalna frekwenja
   number_of_hours: Liczba godzin
+  is: Jest
+  is_not: Nie ma
+  save: Zapisz
 
   schools: Szkoły
   adding_school: Dodawanie szkoły
@@ -38,11 +41,18 @@ pl:
   members: Osoby
   member_info: Informacje
   members_list: Lista osób
+  show_member: Pokaż osobę
   adding_member: Dodawanie osoby
   add_member: Dodaj osobę
   added_members: Dodane osoby
   edit_member: Edycja osoby
   disabled_members: Ukryte osoby
+
+  recommendations: Zalecenia
+  add_recommendation: Dodaj zalecenie
+  adding_recommendation_for: Dodawanie zalecenia dla
+  edit_recommendation: Edytuj zalecenie
+  destroy_recommendation: Usuń zalecenie
 
   groups: Grupy
   groups_list: Lista grup
@@ -113,7 +123,9 @@ pl:
       member:
         first_name: Imię
         last_name: Nazwisko
+        id_card: Numer dowodu/paszportu
         pesel: PESEL
+        birth_date: Data urodzenia
         street: Ulica
         house_number: Numer domu
         city: Miasto
@@ -123,6 +135,8 @@ pl:
         phone: Numer telefonu
         fathers_phone: Numer telefonu ojca
         mothers_phone: Numer telefonu matki
+        is_parents_agreement: Zgoda rodziców?
+        note: Notatka
       group:
         name: Nazwa
         description: Opis

@@ -38,12 +38,12 @@ class LessonsController < ApplicationController
           giving_member: {
             first_name: l.giving_member.first_name,
             last_name: l.giving_member.last_name,
-            phone: l.giving_member.phone
+            pesel: l.giving_member.pesel
           },
           taking_member: {
             first_name: l.taking_member.first_name,
             last_name: l.taking_member.last_name,
-            phone: l.taking_member.phone
+            pesel: l.taking_member.pesel
           },
           lesson_subject: l.lesson_subject.name,
           datetime: l.datetime
@@ -68,7 +68,6 @@ class LessonsController < ApplicationController
 
   def show
     @lesson = Lesson.find(params[:id])
-
   end
 
   def edit
@@ -82,13 +81,13 @@ class LessonsController < ApplicationController
         id: @lesson.giving_member.id,
         first_name: @lesson.giving_member.first_name,
         last_name: @lesson.giving_member.last_name,
-        phone: @lesson.giving_member.phone
+        pesel: @lesson.giving_member.pesel
       },
       taking_member: {
         id: @lesson.taking_member.id,
         first_name: @lesson.taking_member.first_name,
         last_name: @lesson.taking_member.last_name,
-        phone: @lesson.taking_member.phone
+        pesel: @lesson.taking_member.pesel
       },
       lesson_subjects: lesson_subjects,
       lesson_subject: {

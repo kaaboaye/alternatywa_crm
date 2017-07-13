@@ -14,3 +14,26 @@
     }
   }
 }
+
+form.new_member, form.edit_member {
+  div {
+    margin: {
+      top: 10px;
+    }
+  }
+
+  input, span {
+    margin: {
+      right: 3px;
+    }
+  }
+
+  span {
+    display: inline-block;
+  }
+
+  textarea {
+    width: 400px;
+    height: 200px;
+  }
+}

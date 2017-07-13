@@ -7,6 +7,14 @@
       <td>
         <%= @member.first_name %>
       </td>
+      <td ng-controller="MembersInfoCtrl" rowspan="99999"
+          style="vertical-align:top;" ng-init="set_id(<%= @member.id %>)">
+        <%= form_for @member do |f| %>
+          <%= f.label :note %><br />
+          <%= f.text_area :note, "ng-model" => "note" %>
+        <% end %>
+        <input type="button" value="<%= t :save %>" ng-click="save()" />
+      </td>
     </tr>
     <tr>
       <th scope="row">
@@ -22,6 +30,14 @@
       </th>
       <td>
         <%= @member.pesel %>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <%= t "activerecord.attributes.member.birth_date" %>
+      </th>
+      <td>
+        <date value="<%= @member.birth_date %>" />
       </td>
     </tr>
     <tr>
@@ -96,6 +112,18 @@
       </th>
       <td>
         <%= @member.mothers_phone %>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <%= t "activerecord.attributes.member.is_parents_agreement" %>
+      </th>
+      <td>
+        <% if @member.is_parents_agreement %>
+          <span class="text-success"><%= t :is %></span>
+        <% else %>
+          <span class="text-danger"><%= t :is_not %></span>
+        <% end %>
       </td>
     </tr>
   </tbody>
