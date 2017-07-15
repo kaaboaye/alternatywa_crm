@@ -1,0 +1,32 @@
+<% unless @ref %>
+  <h2><%= @title = "#{t :contracts} #{@member.full_name}" %></h2>
+  <%= link_to t("activerecord.models.member"), member_path(@member) %> |
+<% else %>
+  <%= link_to t(:contracts), member_contracts_path(@member) %> |
+<% end %>
+
+<%= link_to t(:add_contract), new_member_contract_path(@member) %>
+
+<table class="table-list table-bordered table-striped">
+  <thead>
+    <tr>
+      <th><%= t "activerecord.attributes.contract.since" %></th>
+      <th><%= t "activerecord.attributes.contract.finish" %></th>
+      <th><%= t "activerecord.attributes.contract.number" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @member.contracts.each do |c| %>
+      <tr>
+        <td><date value="<%= c.since %>" /></td>
+        <td><date value="<%= c.finish %>" /></td>
+        <td><%= c.number %></td>
+
+        <td><%= link_to t(:show), member_contract_path(member_id: @member.id, id: c.id) %></td>
+        <td><%= link_to t(:destroy), member_contract_path(member_id: @member.id, id: c.id, ref: @ref),
+                method: :delete,
+                data: { confirm: t(:are_you_sure) } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

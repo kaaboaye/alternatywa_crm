@@ -1,0 +1,4 @@
+<h1><%= @title = t :edit_contract %></h1>
+<%= link_to t(:back), member_contracts_path(@contract.member) %> |
+<%= link_to t(:show), member_contract_path(@contract.member, @contract) %>
+<%= render 'form' %>

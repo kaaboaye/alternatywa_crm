@@ -9,6 +9,7 @@ class Member < ApplicationRecord
     foreign_key: 'taking_member_id'
   has_many :consultations
   has_many :recommendations
+  has_many :contracts
 
   belongs_to :school, optional: true
 

@@ -1,6 +1,8 @@
-<% if @recommendations_index %>
+<% unless @ref %>
   <h2><%= @title = "#{t :recommendations_for} #{@member.full_name}" %></h2>
   <%= link_to t("activerecord.models.member"), member_path(@member) %> |
+<% else %>
+  <%= link_to t(:recommendations), member_recommendations_path(@member) %> |
 <% end %>
 
 <%= link_to t(:add_recommendation), new_member_recommendation_path(@member) %>
@@ -10,7 +12,7 @@
     <tr>
       <td><%= r.note %><%= "..." if r.note.length == 50 %></td>
       <td><%= link_to t(:show), member_recommendation_path(member_id: @member.id, id: r.id) %></td>
-      <td><%= link_to t(:destroy), member_recommendation_path(member_id: @member.id, id: r.id, root: @recommendations_index),
+      <td><%= link_to t(:destroy), member_recommendation_path(member_id: @member.id, id: r.id, ref: @ref),
               method: :delete,
               data: { confirm: t(:are_you_sure) } %></td>
     </tr>

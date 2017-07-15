@@ -25,25 +25,25 @@
 
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <%= raw dropdown_begin t :members %>
+            <%= dropdown_begin t :members %>
               <li><%= link_to t(:members_list), members_path %></li>
               <li><%= link_to t(:adding_member), new_member_path %></li>
               <li><%= link_to t(:disabled_members), controller: "members", action: "disabled" %></li>
-            <%= raw dropdown_end %>
+            <%= dropdown_end %>
 
-            <%= raw dropdown_begin t :schools %>
+            <%= dropdown_begin t :schools %>
               <li><%= link_to t(:schools_list), schools_path %></li>
               <li><%= link_to t(:adding_school), new_school_path %></li>
               <li><%= link_to t(:disabled_schools), controller: "schools", action: "disabled" %></li>
-            <%= raw dropdown_end %>
+            <%= dropdown_end %>
 
-            <%= raw dropdown_begin t :groups %>
+            <%= dropdown_begin t :groups %>
               <li><%= link_to t(:groups_list), groups_path %></li>
               <li><%= link_to t(:adding_group), new_group_path %></li>
               <li><%= link_to t(:disabled_groups), controller: "groups", action: "disabled" %></li>
-            <%= raw dropdown_end %>
+            <%= dropdown_end %>
 
-            <%= raw dropdown_begin t :events %>
+            <%= dropdown_begin t :events %>
               <li><%= link_to t(:events_list), events_path %></li>
               <li><%= link_to t(:adding_event), new_event_path %></li>
               <li><%= link_to t(:disabled_events), controller: "events", action: "disabled" %></li>
@@ -53,9 +53,9 @@
               <li><%= link_to t(:event_category_list), event_categories_path %></li>
               <li><%= link_to t(:adding_event_category), new_event_category_path %></li>
               <li><%= link_to t(:disabled_event_categories), controller: "event_categories", action: "disabled" %></li>
-            <%= raw dropdown_end %>
+            <%= dropdown_end %>
 
-            <%= raw dropdown_begin t :lessons %>
+            <%= dropdown_begin t :lessons %>
               <li><%= link_to t(:lessons_list), lessons_path %></li>
               <li><%= link_to t(:adding_lesson), new_lesson_path %></li>
 
@@ -64,13 +64,13 @@
               <li><%= link_to t(:lesson_subjects_list), controller: "lesson_subjects", action: "index" %></li>
               <li><%= link_to t(:adding_lesson_subject), controller: "lesson_subjects", action: "new" %></li>
               <li><%= link_to t(:disabled_lesson_subjects), controller: "lesson_subjects", action: "disabled" %></li>
-            <%= raw dropdown_end %>
+            <%= dropdown_end %>
 
-            <%= raw dropdown_begin t :consultations %>
+            <%= dropdown_begin t :consultations %>
               <li><%= link_to t(:consultations_list), consultations_path %></li>
               <li><%= link_to t(:adding_consultation), new_consultation_path %></li>
               <li><%= link_to t(:disabled_consultations), controller: "consultations", action: "disabled" %></li>
-            <%= raw dropdown_end %>
+            <%= dropdown_end %>
           </ul>
         </div>
       </div>

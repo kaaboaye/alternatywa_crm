@@ -10,5 +10,6 @@
 
     scope.time = hh + ":" + mm
 
+  scope: {},
   template: "{{time}}"
 ]

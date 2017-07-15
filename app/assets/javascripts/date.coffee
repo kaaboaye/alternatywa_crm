@@ -11,8 +11,9 @@
 
     if MM < 10
       MM = "0" + MM
-      
+
     scope.date = dd + "." + MM + "." + yy
 
+  scope: {},
   template: "{{date}}"
 ]

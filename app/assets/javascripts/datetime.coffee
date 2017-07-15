@@ -22,5 +22,6 @@
 
     scope.datetime = dd + "." + MM + "." + yy + " " + hh + ":" + mm
 
+  scope: {},
   template: "{{datetime}}"
 ]

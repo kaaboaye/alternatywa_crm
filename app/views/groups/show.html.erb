@@ -3,7 +3,7 @@
 <h2><%= t "activerecord.models.group" %></h2>
 <%= link_to t(:back), groups_path %> |
 <%= link_to t(:edit_group), edit_group_path(@group) %> |
-<%= link_to t(:add_presence), group_presence_new_path(@group) %> | 
+<%= link_to t(:add_presence), group_presence_new_path(@group) %> |
 <%= link_to t(:add_group), new_group_path %>
 
 <p>
@@ -19,16 +19,6 @@
     <pre><%= @group.description %></pre>
 </p>
 
-<div class="hideable">
-  <h3 class="hideable-header"><%= t :presences_lists %></h3>
-  <div class="hideable-content">
-    <%= render "show_lists" %>
-  </div>
-</div>
 
-<div class="hideable">
-  <h3 class="hideable-header"><%= t :active_members %></h3>
-  <div class="hideable-content">
-    <%= render "active_members" %>
-  </div>
-</div>
+<%= hideable t(:presences_lists), render("show_lists") %>
+<%= hideable t(:active_members), render("active_members") %>

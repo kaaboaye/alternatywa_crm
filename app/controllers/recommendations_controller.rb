@@ -1,8 +1,5 @@
 class RecommendationsController < ApplicationController
-  include RecommendationsHelper
-
   def index
-    @recommendations_index = true
     @member = Member.find params[:member_id]
   end
 
@@ -40,10 +37,11 @@ class RecommendationsController < ApplicationController
     recommendation = Recommendation.find params[:id]
     recommendation.destroy
 
-    if params[:root] == "true"
-      redirect_to member_recommendations_path(recommendation.member)
-    else
+    case params[:ref]
+    when "members-show"
       redirect_to member_path(recommendation.member)
+    else
+      redirect_to member_recommendations_path(recommendation.member)
     end
   end
 

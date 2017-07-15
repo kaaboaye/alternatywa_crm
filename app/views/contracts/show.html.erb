@@ -1,0 +1,24 @@
+<% @title = "#{ t "activerecord.models.contract" } #{ @contract.number } #{ t :with } #{ @contract.member.full_name }" %>
+
+<h2><%= t "activerecord.models.contract" %></h2>
+<%= link_to t(:contracts), member_contracts_path(@contract.member) %> |
+<%= link_to t("activerecord.models.member"), member_path(@contract.member) %> |
+<%= link_to t(:edit_contract), edit_member_contract_path(@contract.member) %> |
+<%= link_to t(:add_contract), new_member_contract_path(@contract.member) %>
+
+<p>
+    <%= t "activerecord.attributes.contract.since" %>:
+    <date value="<%= @contract.since %>" />
+</p>
+<p>
+    <%= t "activerecord.attributes.contract.finish" %>:
+    <date value="<%= @contract.finish %>" />
+</p>
+<p>
+    <%= t "activerecord.attributes.contract.number" %>:
+    <%= @contract.number %>
+</p>
+<p>
+    <%= t "activerecord.attributes.contract.description" %>:
+    <pre><%= @contract.description %></pre>
+</p>

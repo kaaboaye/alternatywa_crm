@@ -35,6 +35,7 @@ class MembersController < ApplicationController
   end
 
   def show
+    @ref = "members-show"
     @member = Member.find params[:id]
   end
 

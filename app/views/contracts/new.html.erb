@@ -1,0 +1,6 @@
+<h2><%= @title = "#{t :adding_contract_for} #{@contract.member.full_name}" %></h2>
+
+<%= link_to t("activerecord.models.member"), member_path(@contract.member) %> |
+<%= link_to t(:contracts), member_recommendations_path(@contract.member) %>
+
+<%= render "form" %>

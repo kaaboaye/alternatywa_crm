@@ -43,6 +43,7 @@ Rails.application.routes.draw do
     get 'activity', to: 'members#activity', as: 'activity'
 
     resources :recommendations
+    resources :contracts
   end
 
   patch 'members/:member_id/recommendations', to: 'recommendations#update'

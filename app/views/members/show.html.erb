@@ -6,23 +6,7 @@
   <%= link_to t(:edit_member), edit_member_path(@member) %>
 </div>
 
-<div class="hideable">
-  <h3 class="hideable-header"><%= t :member_info %></h3>
-  <div class="hideable-content">
-    <%= render "info" %>
-  </div>
-</div>
-
-<div class="hideable">
-  <h3 class="hideable-header"><%= t :recommendations %></h3>
-  <div class="hideable-content">
-    <%= render template: "recommendations/index" %>
-  </div>
-</div>
-
-<div class="hideable members">
-  <h3 class="hideable-header"><%= t :activity %></h3>
-  <div class="hideable-content">
-    <%= render "activity" %>
-  </div>
-</div>
+<%= hideable t(:member_info), render("info") %>
+<%= hideable t(:recommendations), render(template: "recommendations/index") %>
+<%= hideable t(:contracts), render(template: "contracts/index") %>
+<%= hideable t(:activity), render("activity") %>

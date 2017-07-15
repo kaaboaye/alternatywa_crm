@@ -30,6 +30,7 @@ pl:
   is: Jest
   is_not: Nie ma
   save: Zapisz
+  with: z
 
   schools: Szkoły
   adding_school: Dodawanie szkoły
@@ -55,6 +56,12 @@ pl:
   adding_recommendation_for: Dodawanie zalecenia dla
   edit_recommendation: Edytuj zalecenie
   destroy_recommendation: Usuń zalecenie
+
+  contracts: Umowy
+  add_contract: Dodaj umowę
+  adding_contract_for: Dodawanie umowy dla
+  contract_with: Umowa z
+  edit_contract: Edytuj umowę
 
   groups: Grupy
   groups_list: Lista grup
@@ -120,6 +127,7 @@ pl:
       lesson_subject: Temat spotkania
       consultation: Konsultacja
       recommendation: Zalecenie
+      contract: Umowa
     attributes:
       school:
         name: Nazwa
@@ -143,6 +151,11 @@ pl:
       recommendation:
         member_id: Osoba
         note: Notatka
+      contract:
+        since: Od
+        finish: Do
+        number: Numer
+        description: Opis
       group:
         name: Nazwa
         description: Opis
@@ -373,6 +386,12 @@ pl:
       consultation:
         create: Dodaj konsultacje
         update: Zaktualizuj konsultacje
+      recommendation:
+        create: Utwórz zalecenie
+        update: Zaktualizuj zalecenie
+      contract:
+        create: Utwórz umowę
+        update: Zaktualizuj umowę
   number:
     currency:
       format:
